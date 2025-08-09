@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import styles from "../../css/Contact.module.css";
 
 export const Contact = () => {
   const form = useRef();
@@ -28,16 +29,21 @@ export const Contact = () => {
   };
 
   return (
-    <Form className="email-form" ref={form} onSubmit={sendEmail}>
-      <Form.Group style={{ width: "20rem", margin: "auto" }} className="mb-3">
-        <Form.Control type="text" placeholder="Nimi:" name="from_name" />
+<Form className={`${styles.emailForm} mb-3`} ref={form} onSubmit={sendEmail}>
+      <Form.Group className={`${styles.formGroup} mb-3`}>
+        <Form.Control 
+          className={styles.formControl}
+          type="text" 
+          placeholder="Nimi:" 
+          name="from_name" 
+        />
       </Form.Group>
       <Form.Group
-        style={{ width: "20rem", margin: "auto" }}
+        className={`${styles.formGroup} mb-3`}
         controlId="formBasicEmail"
       >
         <Form.Control
-          className="mb-3"
+          className={styles.formControl}
           type="email"
           placeholder="e-Mail:"
           name="from_email"
@@ -45,18 +51,22 @@ export const Contact = () => {
       </Form.Group>
 
       <Form.Group
-        style={{ width: "20rem", margin: "auto" }}
-        className="mb-3"
+        className={`${styles.formGroup} mb-3`}
         controlId="exampleForm.ControlTextarea1"
       >
         <Form.Control
+          className={styles.formControl}
           as="textarea"
           rows={3}
           placeholder="Sõnum:"
           name="message"
         />
       </Form.Group>
-      <Button variant="dark" type="submit">
+      <Button 
+        variant="secondary" 
+        type="submit"
+        className={styles.submitButton}
+      >
         Send
       </Button>
     </Form>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Footer from "../components/home/Footer";
 import { Contact } from "../components/home/Contact";
+import styles from "../css/HomePage.module.css";
 
 const images = [
   "https://i.postimg.cc/sDNPCTfm/20250414-113401.jpg",
@@ -48,25 +49,25 @@ function HomePage() {
 
   return (
     <div>
-      <div className="profile-div">
+      <div className={styles.profileDiv}>
         <br />
-        <h1>Üle 15. aasta erialast kogemust.</h1>
+        <h1>Üle 15 aasta erialast kogemust</h1>
         <br />
-        <div className="profile-img-container">
+        <div className={styles.profileImgContainer}>
           <img
             alt="pilt suurest toast, kus on suur tuba, suur diivan, suur laud ja suur teler"
-            className="profile-image"
+            className={styles.profileImage}
             src="./Elutuba.jpg"
           />
         </div>
       </div>
-      <div className="projects">
-        <h2 className="project-header" id="projects">
+      <div className={styles.projects}>
+        <h2 className={styles.projectHeader} id="projects">
           Tehtud tööd
         </h2>
-        <div className="tehtud-tööd">
+        <div className={styles.tehtudTööd}>
           {images.map((src, i) => (
-            <div className="tehtud-töö-container" key={i}>
+            <div className={styles.tehtudTööContainer} key={i}>
               <img src={src} alt="" onClick={() => handleImageClick(src)} />
             </div>
           ))}
@@ -74,8 +75,8 @@ function HomePage() {
       </div>
       <br />
       <br /> <br />
-      <div className="contact-container">
-        <div className="contact-me">
+      <div className={styles.contactContainer}>
+        <div className={styles.contactMe}>
           <h2 id="contacts">Kirjuta oma plaanist!</h2> <br />
           <Contact />
         </div>
@@ -85,94 +86,36 @@ function HomePage() {
         show={showModal}
         onHide={handleClose}
         centered
-        dialogClassName="custom-modal-width"
-        contentClassName="custom-modal-content"
+        dialogClassName={styles.customModalWidth}
+        contentClassName={styles.modalContent}
       >
-        <Modal.Body
-          style={{
-            padding: 0,
-            background: "black",
-            borderRadius: "5px",
-            position: "relative",
-          }}
-        >
+        <Modal.Body style={{
+          padding: 0,
+          background: "black",
+          borderRadius: "5px",
+          position: "relative",
+        }}>
           <button
             onClick={handleClose}
-            style={{
-              position: "absolute",
-              right: "10px",
-              top: "10px",
-              background: "rgba(255, 255, 255, 0.7)",
-              border: "none",
-              borderRadius: "50%",
-              width: "30px",
-              height: "30px",
-              cursor: "pointer",
-              zIndex: 1000,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className={styles.closeButton}
           >
             ✕
           </button>
-          {/* Vasak nool */}
           <button
             onClick={handlePrev}
-            style={{
-              position: "absolute",
-              left: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "rgba(255,255,255,0.7)",
-              border: "none",
-              borderRadius: "50%",
-              width: "40px",
-              height: "40px",
-              cursor: "pointer",
-              zIndex: 1000,
-              fontSize: "1.5em",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className={styles.prevButton}
             aria-label="Eelmine pilt"
           >
             &#8592;
           </button>
-          {/* Pilt */}
           <img
             src={images[currentIndex]}
             alt=""
-            style={{
-              width: "1000px",
-              height: "auto",
-              display: "block",
-              maxHeight: "90vh",
-              objectFit: "contain",
-              margin: "0 auto",
-            }}
+            className={styles.modalImage}
           />
-          {/* Parem nool */}
           <button
             onClick={handleNext}
-            style={{
-              position: "absolute",
-              right: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "rgba(255,255,255,0.7)",
-              border: "none",
-              borderRadius: "50%",
-              width: "40px",
-              height: "40px",
-              cursor: "pointer",
-              zIndex: 1000,
-              fontSize: "1.5em",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className={styles.nextButton}
             aria-label="Järgmine pilt"
           >
             &#8594;

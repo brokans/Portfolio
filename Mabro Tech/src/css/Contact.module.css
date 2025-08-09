@@ -1,0 +1,23 @@
+.emailForm {
+  width: 400px;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 15px 15px 10px rgba(196, 216, 224, 0.2);
+}
+
+.formGroup {
+    width: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.formControl {
+    width: 100%;
+}
+
+.submitButton {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #a6c9f0;
+}

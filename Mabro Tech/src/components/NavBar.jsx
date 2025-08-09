@@ -5,7 +5,13 @@ import Navbar from "react-bootstrap/Navbar";
 
 function NavBar() {
   return (
-    <Navbar className="navbar" expand="lg" data-bs-theme="light" sticky="top" variant="dark">
+    <Navbar
+      className="navbar"
+      expand="lg"
+      data-bs-theme="light"
+      sticky="top"
+      variant="dark"
+    >
       <Container>
         <Navbar.Brand href="/">
           <img className="logo" src="/logo.png" alt="" />
@@ -13,8 +19,15 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#tests">Meist</Nav.Link>
-            <Nav.Link href="#contacts">Kontaktid</Nav.Link>
+            <Nav.Item>
+              <Nav.Link href="/">Avaleht</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/about">Meist</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/contacts">Kontaktid</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>
