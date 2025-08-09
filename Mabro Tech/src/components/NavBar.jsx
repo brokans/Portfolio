@@ -23,7 +23,7 @@ function NavBar() {
               <Nav.Link href="/">Avaleht</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/about">Meist</Nav.Link>
+              <Nav.Link href="/about">Teenused</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/contacts">Kontaktid</Nav.Link>

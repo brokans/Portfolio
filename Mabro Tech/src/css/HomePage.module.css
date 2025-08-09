@@ -187,7 +187,6 @@
 
 .modalImage {
   width: 100%;
-  /* max-width: 1000px; */
   height: auto;
   display: block;
   max-height: 90vh;
@@ -205,13 +204,13 @@
   .prevButton, .nextButton {
     width: 65px;
     height: 65px;
-    font-size: 2.8em;
+    font-size: 2em;
   }
 
   .closeButton {
     width: 55px;
     height: 55px;
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }
 
@@ -226,29 +225,28 @@
   .prevButton, .nextButton {
     width: 40px;
     height: 40px;
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   .closeButton {
     width: 40px;
     height: 40px;
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }
 
 /* Tablet ja väiksemad ekraanid */
 @media (max-width: 768px) {
-  .profileImgContainer {
-    height: 50vh;
+  .modalImage {
+    max-width: auto;
+    width: auto;
   }
 
   .projects {
     width: 90%;
   }
 
-
-    max-width: 90vw;
-  }
+ }
 
   .closeButton {
     width: 40px;

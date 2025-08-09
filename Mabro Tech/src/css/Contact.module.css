@@ -21,3 +21,7 @@
     margin-bottom: 1rem;
     background-color: #a6c9f0;
 }
+
+.submitButton:hover {
+    background-color: #85b3e4;
+}
