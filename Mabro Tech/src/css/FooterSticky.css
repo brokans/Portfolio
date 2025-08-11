@@ -1,0 +1,18 @@
+html, body, #root, .sticky-footer-layout {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.sticky-footer-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sticky-footer-layout .content {
+  flex: 1 0 auto;
+}
+
+footer {
+  margin-top: auto;
+}

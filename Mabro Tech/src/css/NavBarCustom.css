@@ -1,0 +1,21 @@
+.logo {
+  height: 70px;
+  width: auto;
+  display: block;
+  margin-left: 0;
+}
+
+
+.navbar {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.navbar-inner-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 !important;
+}

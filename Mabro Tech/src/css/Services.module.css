@@ -1,27 +1,26 @@
 .servicesContainer {
-    max-width: 800px;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: left
+  max-width: 800px;
+  /* height: 90vh; */
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;
 }
 
 .servicesContainer h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
 }
 
 .servicesContainer p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #667;
-    margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #667;
+  margin-bottom: 20px;
 }
 
 .buttonContainer {
-    margin: auto;
-    text-align: center;
+  padding: 40px;
+  margin: auto;
+  text-align: center;
 }
-
-

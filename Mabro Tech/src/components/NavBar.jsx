@@ -2,19 +2,20 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import "../css/NavBarCustom.css";
 
 function NavBar() {
   return (
     <Navbar
-      className="navbar"
+      className="navbar custom-navbar"
       expand="lg"
       data-bs-theme="light"
       sticky="top"
       variant="dark"
     >
-      <Container>
-        <Navbar.Brand href="/">
-          <img className="logo" src="/logo.png" alt="" />
+      <Container fluid className="navbar-inner-container">
+        <Navbar.Brand href="/" className="d-flex align-items-center">
+          <img className="logo" src="/logo.png" alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
