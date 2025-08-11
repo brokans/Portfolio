@@ -58,7 +58,7 @@ function HomePage() {
           <img
             alt="pilt suurest toast, kus on suur tuba, suur diivan, suur laud ja suur teler"
             className={styles.profileImage}
-            src="./Elutuba.jpg"
+            src="./Elutuba.JPG"
           />
         </div>
       </div>
