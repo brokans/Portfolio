@@ -5,6 +5,7 @@ import { Contact } from "../components/home/Contact";
 import styles from "../css/HomePage.module.css";
 
 const images = [
+  "https://i.postimg.cc/7PSKL3dD/20250414-111604.jpg",
   "https://i.postimg.cc/sDNPCTfm/20250414-113401.jpg",
   "https://i.postimg.cc/2Sh921nC/20250414-112315.jpg",
   "https://i.postimg.cc/jq3150sY/20250414-112815.jpg",
@@ -25,7 +26,7 @@ const images = [
   "https://i.postimg.cc/y8Npz7gZ/P-20170602-111447.jpg",
   "https://i.postimg.cc/nLSjXqsK/528-CCD27-3-BB8-43-CF-BD20-2-E843-C7-DDA09.jpg",
   "https://i.postimg.cc/Twyyghmz/6-A72-C282-5241-4-C30-B1-F5-3-B0-D37537-DBE.jpg",
-  "https://i.postimg.cc/j2PL39Mv/95-A939-D3-016-B-4-F05-A0-D6-E1-CED7-BC6-D6-C.jpg"
+  "https://i.postimg.cc/j2PL39Mv/95-A939-D3-016-B-4-F05-A0-D6-E1-CED7-BC6-D6-C.jpg",
 ];
 
 function HomePage() {
@@ -53,7 +54,6 @@ function HomePage() {
   return (
     <div>
       <div className={styles.profileDiv}>
-
         <div className={styles.profileImgContainer}>
           <img
             alt="pilt suurest toast, kus on suur tuba, suur diivan, suur laud ja suur teler"
@@ -64,7 +64,8 @@ function HomePage() {
       </div>
       <div className={styles.projects}>
         <h2 className={styles.projectHeader} id="projects">
-          Tehtud tööd
+          Siin on valik töödest, mille oleme hiljuti teostanud. <br /> Vajadusel
+          saadan lisainfot või hinnapakkumise!
         </h2>
         <div className={styles.tehtudTööd}>
           {images.map((src, i) => (
@@ -82,47 +83,52 @@ function HomePage() {
           <Contact />
         </div>
       </div>
+      <p>
+        Soovid ka sellist kodulehte oma ettevõttele? <br />
+        Võta ühendust!
+      </p>
       <br />
-      <Modal
-        show={showModal}
-        onHide={handleClose}
-        centered
-        dialogClassName={styles.customModalWidth}
-        contentClassName={styles.modalContent}
-      >
-        <Modal.Body style={{
-          padding: 0,
-          background: "black",
-          borderRadius: "5px",
-          position: "relative",
-        }}>
-          <button
-            onClick={handleClose}
-            className={styles.closeButton}
+      <div className={styles.homePageModalContainer}>
+        <Modal
+          show={showModal}
+          onHide={handleClose}
+          centered
+          dialogClassName={styles.customModalWidth}
+          contentClassName={styles.modalContent}
+        >
+          <Modal.Body
+            style={{
+              padding: 0,
+              background: "black",
+              borderRadius: "5px",
+              position: "relative",
+            }}
           >
-            ✕
-          </button>
-          <button
-            onClick={handlePrev}
-            className={styles.prevButton}
-            aria-label="Eelmine pilt"
-          >
-            &#8592;
-          </button>
-          <img
-            src={images[currentIndex]}
-            alt=""
-            className={styles.modalImage}
-          />
-          <button
-            onClick={handleNext}
-            className={styles.nextButton}
-            aria-label="Järgmine pilt"
-          >
-            &#8594;
-          </button>
-        </Modal.Body>
-      </Modal>
+            <button onClick={handleClose} className={styles.closeButton}>
+              ✕
+            </button>
+            <button
+              onClick={handlePrev}
+              className={styles.prevButton}
+              aria-label="Eelmine pilt"
+            >
+              &#8592;
+            </button>
+            <img
+              src={images[currentIndex]}
+              alt=""
+              className={styles.modalImage}
+            />
+            <button
+              onClick={handleNext}
+              className={styles.nextButton}
+              aria-label="Järgmine pilt"
+            >
+              &#8594;
+            </button>
+          </Modal.Body>
+        </Modal>
+      </div>
     </div>
   );
 }

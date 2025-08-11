@@ -1,11 +1,11 @@
 .navbar .nav-link:hover {
-  color: #888 !important;
+  color: lightgray !important;
 }
 
   .navbar .nav-link {
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-size: 0.8em;
-    color: #667 !important;
+    color: white;
   }
 .App {
   text-align: center;

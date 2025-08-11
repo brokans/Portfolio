@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,13 +6,14 @@ import styles from "../../css/Contact.module.css";
 
 export const Contact = () => {
   const form = useRef();
+  const [sent, setSent] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setSent(false);
     emailjs
       .sendForm(
-        "service_zoynupw",
+        "service_9cw7bxi",
         "template_akogdbi",
         form.current,
         "PXhCZSpIJP4mL_Cfv"
@@ -21,6 +22,8 @@ export const Contact = () => {
         (result) => {
           console.log(result.text);
           form.current.reset();
+          setSent(true);
+          setTimeout(() => setSent(false), 4000);
         },
         (error) => {
           console.log(error.text);
@@ -29,7 +32,13 @@ export const Contact = () => {
   };
 
   return (
-<Form className={`${styles.emailForm} mb-3`} ref={form} onSubmit={sendEmail}>
+    <>
+      {sent && (
+        <div style={{ color: 'green', marginBottom: '16px', textAlign: 'center', fontWeight: 500 }}>
+          Sõnum on saadetud!
+        </div>
+      )}
+      <Form className={`${styles.emailForm} mb-3`} ref={form} onSubmit={sendEmail}>
       <Form.Group className={`${styles.formGroup} mb-3`}>
         <Form.Control 
           className={styles.formControl}
@@ -67,8 +76,9 @@ export const Contact = () => {
         type="submit"
         className={styles.submitButton}
       >
-        Send
+        Saada
       </Button>
-    </Form>
+      </Form>
+    </>
   );
 };

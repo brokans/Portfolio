@@ -30,7 +30,9 @@ function Contacts() {
         <p>Registrikood: 17278449</p>
         <p>Rivi 4-92, Tallinn, 11316</p>
       </div>
-      <Contact />
+      <div id="contact-form">
+        <Contact />
+      </div>
     </div>
   );
 }
