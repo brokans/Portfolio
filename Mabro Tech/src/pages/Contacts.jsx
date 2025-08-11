@@ -1,12 +1,11 @@
 import React from "react";
-import styles from "../css/About.module.css";
+import styles from "../css/Contacts.module.css";
 import { Contact } from "../components/home/Contact";
-import Footer from "../components/home/Footer";
 
 function Contacts() {
   return (
     <div>
-      <div className={styles.aboutContainer}>
+      <div className={styles.contactsContainer}>
         <h1>Meist</h1>
         <p>
           Meie ettevõte on küll uus, kuid kogemused on pikaajalised. Oleme
@@ -32,7 +31,6 @@ function Contacts() {
         <p>Rivi 4-92, Tallinn, 11316</p>
       </div>
       <Contact />
-      <Footer />
     </div>
   );
 }

@@ -3,24 +3,26 @@ import "./App.css";
 
 import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import About from "./pages/About";
+import Services from "./pages/Services";
 import Contacts from "./pages/Contacts";
 import NavBar from "./components/NavBar";
+import Footer from "./components/home/Footer";
 
 function App() {
-
   return (
     <div className="App">
       <NavBar />
       <Link to="/"></Link>
-      <Link to="/about"></Link>
+      <Link to="/services"></Link>
       <Link to="/contacts"></Link>
 
       <Routes>
-        <Route path="/" element={< HomePage />} />
-        <Route path="/about" element={< About />} />
-  <Route path="/contacts" element={<Contacts />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
+
+      <Footer />
     </div>
   );
 }

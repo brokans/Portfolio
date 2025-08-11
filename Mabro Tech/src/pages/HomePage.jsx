@@ -23,6 +23,9 @@ const images = [
   "https://i.postimg.cc/TY0NSKwx/P-20170602-111418.jpg",
   "https://i.postimg.cc/6p1jWFn1/P-20170602-111435.jpg",
   "https://i.postimg.cc/y8Npz7gZ/P-20170602-111447.jpg",
+  "https://i.postimg.cc/nLSjXqsK/528-CCD27-3-BB8-43-CF-BD20-2-E843-C7-DDA09.jpg",
+  "https://i.postimg.cc/Twyyghmz/6-A72-C282-5241-4-C30-B1-F5-3-B0-D37537-DBE.jpg",
+  "https://i.postimg.cc/j2PL39Mv/95-A939-D3-016-B-4-F05-A0-D6-E1-CED7-BC6-D6-C.jpg"
 ];
 
 function HomePage() {
@@ -50,9 +53,7 @@ function HomePage() {
   return (
     <div>
       <div className={styles.profileDiv}>
-        <br />
-        <h1>Üle 15 aasta erialast kogemust</h1>
-        <br />
+
         <div className={styles.profileImgContainer}>
           <img
             alt="pilt suurest toast, kus on suur tuba, suur diivan, suur laud ja suur teler"
@@ -77,7 +78,7 @@ function HomePage() {
       <br /> <br />
       <div className={styles.contactContainer}>
         <div className={styles.contactMe}>
-          <h2 id="contacts">Kirjuta oma plaanist!</h2> <br />
+          <h2>Kirjuta oma plaanist!</h2> <br />
           <Contact />
         </div>
       </div>
@@ -122,7 +123,6 @@ function HomePage() {
           </button>
         </Modal.Body>
       </Modal>
-      <Footer />
     </div>
   );
 }
