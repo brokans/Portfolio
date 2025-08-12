@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import Footer from "../components/home/Footer";
 import { Contact } from "../components/home/Contact";
 import styles from "../css/HomePage.module.css";
+import { useTranslation } from "react-i18next";
 
 const images = [
   "https://i.postimg.cc/7PSKL3dD/20250414-111604.jpg",
@@ -30,6 +30,7 @@ const images = [
 ];
 
 function HomePage() {
+  const { t, i18n } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -53,6 +54,7 @@ function HomePage() {
 
   return (
     <div>
+  {/* Keelevahetuse nupud eemaldatud, need on nüüd navbaris */}
       <div className={styles.profileDiv}>
         <div className={styles.profileImgContainer}>
           <img
@@ -64,8 +66,7 @@ function HomePage() {
       </div>
       <div className={styles.projects}>
         <h2 className={styles.projectHeader} id="projects">
-          Siin on valik töödest, mille oleme hiljuti teostanud. <br /> Vajadusel
-          saadan lisainfot või hinnapakkumise!
+          {t('projects_title')}
         </h2>
         <div className={styles.tehtudTööd}>
           {images.map((src, i) => (
@@ -79,13 +80,13 @@ function HomePage() {
       <br /> <br />
       <div className={styles.contactContainer}>
         <div className={styles.contactMe}>
-          <h2>Kirjuta oma plaanist!</h2> <br />
+          <h2>{t('homepage_contact_header')}</h2> <br />
           <Contact />
         </div>
       </div>
-      <p>
-        Soovid ka sellist kodulehte oma ettevõttele? <br />
-        Võta ühendust!
+      <p className={styles.contactBelowText}>
+        {t('homepage_cta')} <br />
+        {t('homepage_contact')}
       </p>
       <br />
       <div className={styles.homePageModalContainer}>
