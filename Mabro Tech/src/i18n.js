@@ -16,6 +16,12 @@ i18n
       et: { translation: et }
     },
     fallbackLng: 'et',
+    detection: {
+      order: ['localStorage', 'navigator', 'htmlTag'],
+      caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
+    },
+    lng: 'et',
     interpolation: { escapeValue: false }
   });
 
