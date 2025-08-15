@@ -52,7 +52,7 @@ function HomePage() {
           className="homePageImg"
         />
         <h1>
-          Arhitektuuribüroo AB Perspektiiv — Meie loome teekonna eesmärkideni!
+          Meie loome teekonna eesmärkideni!
         </h1>{" "}
         <br /> <br />
         <hr />
