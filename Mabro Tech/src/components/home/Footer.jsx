@@ -9,7 +9,7 @@ function Footer() {
       >
         <div className="text-center p-4">
           <p className="footer-text">
-            © 2023 mabrotechy.com
+            © {new Date().getFullYear()} mabrotech.ee
             <br />
             Kõik õigused kaitstud.
             <br />

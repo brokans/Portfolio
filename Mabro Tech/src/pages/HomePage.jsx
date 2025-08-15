@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Modal from "react-bootstrap/Modal";
 import { Contact } from "../components/home/Contact";
 import styles from "../css/HomePage.module.css";
@@ -54,24 +55,55 @@ function HomePage() {
 
   return (
     <div>
-  {/* Keelevahetuse nupud eemaldatud, need on nüüd navbaris */}
+      <Helmet>
+        <title>Mabro Tech – Siseviimistlus ja maalritööd Tallinnas</title>
+        <meta
+          name="description"
+          content="Mabro Tech OÜ – Siseviimistlus, maalritööd, vaheseinad, ripplaed, remonditööd. Kvaliteetne ja usaldusväärne teenus Tallinnas ja Harjumaal."
+        />
+        <link rel="canonical" href="https://mabrotech.ee/" />
+        <meta
+          property="og:title"
+          content="Mabro Tech – Siseviimistlus ja maalritööd"
+        />
+        <meta
+          property="og:description"
+          content="Siseviimistlus, maalritööd, vaheseinad, ripplaed, remonditööd. Kvaliteetne ja usaldusväärne teenus."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mabrotech.ee/" />
+        <meta property="og:image" content="https://mabrotech.ee/Elutuba.JPG" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://mabrotech.ee/Elutuba.JPG" />
+        <meta
+          name="twitter:image:alt"
+          content="Mabro Tech – siseviimistlus ja maalritööd"
+        />
+      </Helmet>
       <div className={styles.profileDiv}>
         <div className={styles.profileImgContainer}>
           <img
-            alt="pilt suurest toast, kus on suur tuba, suur diivan, suur laud ja suur teler"
+            alt="Elutuba – siseviimistluse näidisprojekt"
             className={styles.profileImage}
             src="./Elutuba.JPG"
+            loading="lazy"
           />
         </div>
       </div>
       <div className={styles.projects}>
         <h2 className={styles.projectHeader} id="projects">
-          {t('projects_title')}
+          {t("projects_title")}
         </h2>
         <div className={styles.tehtudTööd}>
           {images.map((src, i) => (
             <div className={styles.tehtudTööContainer} key={i}>
-              <img src={src} alt="" onClick={() => handleImageClick(src)} />
+              <img
+                src={src}
+                alt={`Tehtud töö ${i + 1}`}
+                loading="lazy"
+                onClick={() => handleImageClick(src)}
+              />
             </div>
           ))}
         </div>
@@ -80,13 +112,13 @@ function HomePage() {
       <br /> <br />
       <div className={styles.contactContainer}>
         <div className={styles.contactMe}>
-          <h2>{t('homepage_contact_header')}</h2> <br />
+          <h2>{t("homepage_contact_header")}</h2> <br />
           <Contact />
         </div>
       </div>
       <p className={styles.contactBelowText}>
-        {t('homepage_cta')} <br />
-        {t('homepage_contact')}
+        {t("homepage_cta")} <br />
+        {t("homepage_contact")}
       </p>
       <br />
       <div className={styles.homePageModalContainer}>
@@ -117,7 +149,7 @@ function HomePage() {
             </button>
             <img
               src={images[currentIndex]}
-              alt=""
+              alt={`Tehtud töö ${currentIndex + 1}`}
               className={styles.modalImage}
             />
             <button
