@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Map from "../../components/Map";
 import Button from "react-bootstrap/Button";
 import config from "../../data/config.json";
@@ -20,9 +21,21 @@ export const Contact = () => {
 
   return (
     <div className="locations">
+      <Helmet>
+        <title>Arhitektuuribüroo kontakt — AB Perspektiiv</title>
+        <meta
+          name="description"
+          content="Võta ühendust AB Perspektiiv arhitektuuribürooga: Valgamaa, tel +372 517 0440, angeelika.saaron@abperspektiiv.com."
+        />
+        <link rel="canonical" href="https://abperspektiiv.com/contacts" />
+      </Helmet>
       <div className="contacts">
         <div className="contact">
-          <img className="angeelikaContactImg" src="https://i.postimg.cc/V6yr4GV5/IMG-0026-Copy.jpg" alt="" />
+          <img
+            className="angeelikaContactImg"
+            src="https://i.postimg.cc/V6yr4GV5/IMG-0026-Copy.jpg"
+            alt=""
+          />
           <h4>Angeelika Saaron</h4>
           <p>Arhitekt</p>
           <p>

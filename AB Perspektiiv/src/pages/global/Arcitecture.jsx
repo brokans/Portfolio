@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Footer from "../../components/home/Footer";
 import Carouselle from "../../components/home/Carouselles";
 import config from "../../data/config.json";
@@ -20,6 +21,16 @@ function Arhitektuur() {
 
   return (
     <div>
+      <Helmet>
+        <title>
+          Arhitektuuribüroo — Arhitektuuriprojektid | AB Perspektiiv
+        </title>
+        <meta
+          name="description"
+          content="AB Perspektiiv arhitektuuribüroo arhitektuuri projektid ja teostused."
+        />
+        <link rel="canonical" href="https://abperspektiiv.com/arhitektuur" />
+      </Helmet>
       <div>
         <Carouselle />
       </div>
@@ -27,7 +38,7 @@ function Arhitektuur() {
         <div key={index} className="project-container">
           <div className="project-img-info-container">
             <div className="carousel-container">
-            <Carousel className="carousel-img" fade interval={3000}>
+              <Carousel className="carousel-img" fade interval={3000}>
                 {project.photoOne && (
                   <Carousel.Item>
                     <img src={project.photoOne} alt="" />

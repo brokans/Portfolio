@@ -13,7 +13,7 @@ function Navbars() {
       >
         <Container fluid>
           <Navbar.Brand href="/">
-            <img className="logo" src="./Must.png" alt="" />
+            <img className="logo" src="./Must.png" alt="AB Perspektiiv logo" />
           </Navbar.Brand>
           <Navbar.Brand href="/"> </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

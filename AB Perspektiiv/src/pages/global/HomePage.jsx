@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
+import { Helmet } from "react-helmet-async";
+// import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../components/home/Footer";
 import Email from "../../components/Email";
 import config from "../../data/config.json";
@@ -8,9 +9,9 @@ import "../../App.css";
 
 function HomePage() {
   const [projects, setProjects] = useState([]);
-  const found = projects.filter(
-    (project) => project.category === "Sisearhitektuur"
-  );
+  // const found = projects.filter(
+  //   (project) => project.category === "Sisearhitektuur"
+  // );
 
   useEffect(() => {
     fetch(config.projects)
@@ -20,24 +21,40 @@ function HomePage() {
 
   return (
     <div>
-      <head>
-        <title>Sisearhitektuur & Arhitektuurne Disain | Valga Kodu</title>
+      <Helmet>
+        <title>
+          Arhitektuuribüroo AB Perspektiiv — Arhitektuur ja sisearhitektuur
+        </title>
         <meta
           name="description"
-          content="Avasta professionaalne sisearhitektuur ja arhitektuurne disain. Vaata meie projekte ja võta ühendust!"
+          content="Arhitektuuribüroo Valgamaal: arhitektuur, sisearhitektuur, projekteerimine, 3D‑visualiseerimine ja konsultatsioonid."
+        />
+        <link rel="canonical" href="https://abperspektiiv.com/" />
+        <meta
+          property="og:title"
+          content="Arhitektuuribüroo AB Perspektiiv — Arhitektuur ja sisearhitektuur"
         />
         <meta
-          name="keywords"
-          content="sisearhitektuur, arhitektuur, 3D visualiseerimine, projekteerimine"
+          property="og:description"
+          content="Arhitektuuribüroo – projekteerimine, sisearhitektuur, 3D visualiseerimine ja konsultatsioonid."
         />
-      </head>
+        <meta
+          property="og:image"
+          content="https://abperspektiiv.com/Angeelika1.JPG"
+        />
+        <meta property="og:url" content="https://abperspektiiv.com/" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <section className="homePage-img-container">
         <img
           src="https://i.postimg.cc/vmnj2xX0/angeelika-Fotograaf-Lisette-Laanoja-91.jpg"
-          alt=""
+          alt="AB Perspektiiv arhitektuuri ja sisearhitektuuri projekt"
           className="homePageImg"
         />
-        <h1>Meie loome teekonna eesmärkideni!</h1> <br /> <br />
+        <h1>
+          Arhitektuuribüroo AB Perspektiiv — Meie loome teekonna eesmärkideni!
+        </h1>{" "}
+        <br /> <br />
         <hr />
         <section className="services">
           <h2>TEENUSED</h2>

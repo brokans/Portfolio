@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../components/home/Footer";
 import config from "../../data/config.json";
@@ -27,6 +28,17 @@ function Sisearhitektuur() {
   }, [found]);
   return (
     <div>
+      <Helmet>
+        <title>Arhitektuuribüroo — Sisearhitektuur | AB Perspektiiv</title>
+        <meta
+          name="description"
+          content="AB Perspektiiv sisearhitektuursed projektid ja interjöörid."
+        />
+        <link
+          rel="canonical"
+          href="https://abperspektiiv.com/sisearhitektuur"
+        />
+      </Helmet>
       <div className="homePageImgContainer">
         <Carousel fade>
           {found.map((project) => (
