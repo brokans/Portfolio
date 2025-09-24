@@ -35,6 +35,161 @@ function Services() {
         <h4>{t("services_smallworks_title")}</h4>
         <p>{t("services_smallworks_text")}</p>
         <p>{t("services_contact_text")}</p>
+        <hr />
+        <h2>Hinnakiri</h2>
+        <div
+          style={{ overflowX: "auto", marginTop: "16px", marginBottom: "24px" }}
+        >
+          <table
+            className={styles.priceTable}
+            border="1"
+            cellPadding="8"
+            cellSpacing="0"
+            style={{ borderCollapse: "collapse", width: "100%" }}
+          >
+            <thead style={{ backgroundColor: "#f2f2f2" }}>
+              <tr>
+                <th>Teenus</th>
+                <th>Ühik</th>
+                <th>Hind alates (ilma KM)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colSpan="3">
+                  <strong>Ettevalmistustööd</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Tapeedi eemaldamine</td>
+                <td>m²</td>
+                <td>al 3€</td>
+              </tr>
+              <tr>
+                <td>Seinte kruntimine / nakke kiht</td>
+                <td>m²</td>
+                <td>4€</td>
+              </tr>
+              <tr>
+                <td>Pahteldamine (1 kiht) + lihvimine, kruntimine</td>
+                <td>m²</td>
+                <td>8€</td>
+              </tr>
+              <tr>
+                <td>Pahteldamine (2 kihti), lihvimine, kruntimine</td>
+                <td>m²</td>
+                <td>10€</td>
+              </tr>
+              <tr>
+                <td>Krohvimine (MP-75) / seinte tasandamine</td>
+                <td>m²</td>
+                <td>12€</td>
+              </tr>
+
+              <tr>
+                <td colSpan="3">
+                  <strong>Värvimine / viimistlus</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Värvimine (1 kiht)</td>
+                <td>m²</td>
+                <td>3€</td>
+              </tr>
+              <tr>
+                <td>Värvimine (2 kihti) + lõppviimistlus</td>
+                <td>m²</td>
+                <td>5€</td>
+              </tr>
+              <tr>
+                <td>Tapeetimine</td>
+                <td>m²</td>
+                <td>12€</td>
+              </tr>
+              <tr>
+                <td>Ülevärvitav tapeet + värvimine (2 kihti)</td>
+                <td>m²</td>
+                <td>10€</td>
+              </tr>
+
+              <tr>
+                <td colSpan="3">
+                  <strong>Kipsitööd</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Kipslae ehitus</td>
+                <td>m²</td>
+                <td>20€</td>
+              </tr>
+              <tr>
+                <td>Kipsseinte ehitamine</td>
+                <td>m²</td>
+                <td>18€</td>
+              </tr>
+              <tr>
+                <td>Kipskatteseina ehitamine</td>
+                <td>m²</td>
+                <td>15€</td>
+              </tr>
+              <tr>
+                <td>Akna- ja uksepaled</td>
+                <td>jm</td>
+                <td>10€</td>
+              </tr>
+
+              <tr>
+                <td colSpan="3">
+                  <strong>Põrandad ja lisatööd</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Parketi paigaldus</td>
+                <td>m²</td>
+                <td>15€</td>
+              </tr>
+              <tr>
+                <td>Laminaadi paigaldus</td>
+                <td>m²</td>
+                <td>6€</td>
+              </tr>
+              <tr>
+                <td>Liistude paigaldus</td>
+                <td>jm</td>
+                <td>5€</td>
+              </tr>
+              <tr>
+                <td>Aknapaled / uksepalede viimistlus</td>
+                <td>jm</td>
+                <td>10€</td>
+              </tr>
+              <tr>
+                <td>Siseukse paigaldus</td>
+                <td>tk</td>
+                <td>30€</td>
+              </tr>
+
+              <tr>
+                <td colSpan="3">
+                  <strong>Tunnitasu</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Töömehe tunnitasu</td>
+                <td>tund</td>
+                <td>30€</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr />
+        <p>
+          Mabrotech OÜ hinnakirjas on hinnad käibemaksuta, ei sisalda
+          materjale, tõstevahendeid, abivahendeid ja transporti. Hinnakiri pole
+          lõplik ning täpsem hind sõltub tööde keerukusest ja mahust.
+          Hinnapakkumise saamiseks võtke meiega julgelt ühendust.
+        </p>
+
         <div className={styles.buttonContainer}>
           <Link to="/contacts#contact-form" style={{ textDecoration: "none" }}>
             <Button
@@ -42,7 +197,7 @@ function Services() {
               type="button"
               className={Styles.submitButton}
             >
-              {t("services_send_request")}
+              Küsi pakkumist
             </Button>
           </Link>
         </div>

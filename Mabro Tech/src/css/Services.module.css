@@ -24,3 +24,12 @@
   margin: auto;
   text-align: center;
 }
+
+/* Hinnatabeli font vastavusse ülejäänud lehega */
+.priceTable,
+.priceTable th,
+.priceTable td {
+  font: inherit; /* pärib font-family, font-size, line-height jms */
+  color: inherit;
+  font-size: calc(1em - 2px); /* paar pikslit väiksem kui põhisuurus */
+}
