@@ -51,10 +51,10 @@ export const Contact = () => {
         <div className="contact">
           <img src="https://i.postimg.cc/jS5R0qr7/IMG-9879.jpg" alt="" />
           <h4>Mario Brokans</h4>
-          <p>Joonestaja/Turundus</p>
+          <p>Joonestaja/3D modelleerija</p>
         </div>
       </div>
-      {/* {shops.map((shop) => (
+      {shops.map((shop) => (
         <div className="map-btn">
           <Button
             key={shop.name}
@@ -67,17 +67,17 @@ export const Contact = () => {
             {shop.name}
           </Button>
         </div>
-      ))} */}
+      ))}
       <Map mapCoordinaates={coordinaates} />
       <div>
         <br />
-        {/* <Button
+        <Button
           onClick={() => setCoordinates({ lngLat: [58.8882, 25.523], zoom: 7 })}
           className="gold-btn"
           variant="dark"
         >
           Kõik Stuudiod
-        </Button>{" "} */}
+        </Button>{" "}
         {/* <Button
           onClick={() =>
             setCoordinates({ lngLat: [59.4378, 24.7574], zoom: 11 })
