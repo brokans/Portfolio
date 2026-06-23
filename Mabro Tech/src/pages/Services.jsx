@@ -68,10 +68,10 @@ function Services() {
               <tr>
                 <td>Seinte kruntimine / nakke kiht</td>
                 <td>m²</td>
-                <td>4€</td>
+                <td>3€</td>
               </tr>
               <tr>
-                <td>Pahteldamine (1 kiht) + lihvimine, kruntimine</td>
+                <td>Pahteldamine (1 kiht), lihvimine, kruntimine</td>
                 <td>m²</td>
                 <td>8€</td>
               </tr>
@@ -83,7 +83,7 @@ function Services() {
               <tr>
                 <td>Krohvimine (MP-75) / seinte tasandamine</td>
                 <td>m²</td>
-                <td>12€</td>
+                <td>al 8€</td>
               </tr>
 
               <tr>
@@ -94,12 +94,12 @@ function Services() {
               <tr>
                 <td>Värvimine (1 kiht)</td>
                 <td>m²</td>
-                <td>3€</td>
+                <td>4€</td>
               </tr>
               <tr>
-                <td>Värvimine (2 kihti) + lõppviimistlus</td>
+                <td>Värvimine (2 kihti)</td>
                 <td>m²</td>
-                <td>5€</td>
+                <td>6€</td>
               </tr>
               <tr>
                 <td>Tapeetimine</td>
@@ -184,10 +184,10 @@ function Services() {
         </div>
         <hr />
         <p>
-          Mabrotech OÜ hinnakirjas on hinnad käibemaksuta, ei sisalda
-          materjale, tõstevahendeid, abivahendeid ja transporti. Hinnakiri pole
-          lõplik ning täpsem hind sõltub tööde keerukusest ja mahust.
-          Hinnapakkumise saamiseks võtke meiega julgelt ühendust.
+          Mabrotech OÜ hinnakirjas on hinnad käibemaksuta, ei sisalda materjale,
+          tõstevahendeid, abivahendeid ja transporti. Hinnakiri pole lõplik ning
+          täpsem hind sõltub tööde keerukusest ja mahust. Hinnapakkumise
+          saamiseks võtke meiega julgelt ühendust.
         </p>
 
         <div className={styles.buttonContainer}>
