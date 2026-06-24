@@ -2,7 +2,7 @@ import { ref, set } from "firebase/database";
 import { database } from "../firebase";
 
 const DATABASE_URL =
-  process.env.REACT_APP_FIREBASE_DATABASE_URL ||
+  import.meta.env.VITE_FIREBASE_DATABASE_URL ||
   "https://bros-webshop-default-rtdb.europe-west1.firebasedatabase.app";
 
 export const COLLECTIONS = {

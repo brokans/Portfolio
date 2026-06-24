@@ -25,32 +25,32 @@ function Services() {
           <h2>TEENUSED</h2>
           <div className="teenused">
             <div className="service">
-              <img className="service-icon" src="./3d-printer.png" alt="" />
+              <img className="service-icon" src="/3d-printer.png" alt="" />
               <p>Arhitektuurne projekteerimine</p>
             </div>
 
             <div className="service">
               <img
                 className="service-icon"
-                src="./interior-design.png"
+                src="/interior-design.png"
                 alt=""
               />
               <p>Sisearhitektuurne projekteerimine</p>
             </div>
             <div className="service">
-              <img className="service-icon" src="./cube.png" alt="" />
+              <img className="service-icon" src="/cube.png" alt="" />
               <p>3D visualiseerimine ja mudeldamine</p>
             </div>
             <div className="service">
-              <img className="service-icon" src="./moodboard.png" alt="" />
+              <img className="service-icon" src="/moodboard.png" alt="" />
               <p>Mood boardide loomine</p>
             </div>
             <div className="service">
-              <img className="service-icon" src="./analytics.png" alt="" />
+              <img className="service-icon" src="/analytics.png" alt="" />
               <p>Arhitektuurne analüüs äriideedele</p>
             </div>
             <div className="service">
-              <img className="service-icon" src="./speech-bubble.png" alt="" />
+              <img className="service-icon" src="/speech-bubble.png" alt="" />
               <p>Konsultatsioon</p>
             </div>
             <div className="service">

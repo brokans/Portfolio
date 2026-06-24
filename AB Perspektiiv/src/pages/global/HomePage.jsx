@@ -51,7 +51,7 @@ function HomePage() {
               <div className="teenus">
                 <img
                   className="avalehe-ikoonid"
-                  src="./3d-printer.png"
+                  src="/3d-printer.png"
                   alt="Arhitektuurne projekteerimine"
                 />
                 <p>Arhitektuurne projekteerimine</p>
@@ -59,7 +59,7 @@ function HomePage() {
               <div className="teenus">
                 <img
                   className="avalehe-ikoonid"
-                  src="./interior-design.png"
+                  src="/interior-design.png"
                   alt="Sisearhitektuurne projekteerimine"
                 />
                 <p>Sisearhitektuurne projekteerimine</p>
@@ -67,7 +67,7 @@ function HomePage() {
               <div className="teenus">
                 <img
                   className="avalehe-ikoonid"
-                  src="./cube.png"
+                  src="/cube.png"
                   alt="3D visualiseerimine ja mudeldamine"
                 />
                 <p>3D visualiseerimine ja mudeldamine</p>
@@ -77,7 +77,7 @@ function HomePage() {
               <div className="teenus">
                 <img
                   className="avalehe-ikoonid"
-                  src="./moodboard.png"
+                  src="/moodboard.png"
                   alt="Meeleolutahvlite loomine"
                 />
                 <p>Mood boardide loomine</p>
@@ -85,7 +85,7 @@ function HomePage() {
               <div className="teenus">
                 <img
                   className="avalehe-ikoonid"
-                  src="./analytics.png"
+                  src="/analytics.png"
                   alt="Arhitektuurne analüüs"
                 />
                 <p>Arhitektuurne analüüs äriideedele</p>
@@ -93,7 +93,7 @@ function HomePage() {
               <div className="teenus">
                 <img
                   className="avalehe-ikoonid"
-                  src="./speech-bubble.png"
+                  src="/speech-bubble.png"
                   alt=""
                 />
                 <p>Konsultatsioon</p>
