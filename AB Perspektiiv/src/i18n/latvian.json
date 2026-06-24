@@ -112,12 +112,21 @@
     "title": "Sazinieties ar mums",
     "intro": "Mēs klausām jūsu idejas un palīdzam atrast piemērotu risinājumu. Rakstiet, zvaniet vai nāciet uz studiju – atbildēsim pēc iespējas ātrāk.",
     "teamTitle": "Komanda",
-    "formTitle": "Rakstiet mums",
-    "formSubtitle": "Īsi aprakstiet projektu vai ideju – norādiet, ja vēlaties cenas piedāvājumu vai konsultāciju.",
+    "formTitle": "Parunāsim par jūsu projektu",
+    "formSubtitle": "Īsi aprakstiet plānoto telpu vai projektu – tā mēs varēsim ieteikt pareizu pieeju piedāvājumam vai konsultācijai.",
     "mapTitle": "Atrašanās vieta",
     "architect": "Arhitekts",
     "draftsman": "Zīmētājs / 3D modelētājs",
-    "allStudios": "Visi studiji"
+    "allStudios": "Visi studiji",
+    "formEyebrow": "Pieprasījums",
+    "formNote": "Parasti atbildam vienas līdz divu darba dienu laikā.",
+    "formHints": [
+      "Projekta veids (māja, komerciāla telpa, renovācija)",
+      "Atrašanās vieta un plānots laiks",
+      "Vai vēlaties piedāvājumu vai konsultāciju"
+    ],
+    "formDirect": "Vai sazinieties tieši:",
+    "formCardTitle": "Nosūtīt pieprasījumu"
   },
   "categories": {
     "Arhitektuur": "Arhitektūra",

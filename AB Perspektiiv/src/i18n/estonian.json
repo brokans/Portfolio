@@ -118,12 +118,21 @@
     "title": "Võtke ühendust",
     "intro": "Oleme siin, et kuulata teie ideed ja aidata leida sobiva lahenduse. Kirjutage, helistage või tule stuudiosse – vastame esimesel võimalusel.",
     "teamTitle": "Meeskond",
-    "formTitle": "Kirjuta meile",
-    "formSubtitle": "Kirjeldage lühidalt oma projekti või ideed – soovi korral märkige, kas soovite hinnapakkumist või konsultatsiooni.",
+    "formTitle": "Räägime teie projektist",
+    "formSubtitle": "Kirjeldage lühidalt, millist ruumi või projekti plaanite – nii saame pakkumise või konsultatsiooni jaoks valida õige lähenemise.",
     "mapTitle": "Asukoht",
     "architect": "Arhitekt",
     "draftsman": "Joonestaja/3D modelleerija",
-    "allStudios": "Kõik stuudiod"
+    "allStudios": "Kõik stuudiod",
+    "formEyebrow": "Päring",
+    "formNote": "Vastame tavaliselt ühe kuni kahe tööpäeva jooksul.",
+    "formHints": [
+      "Projekti tüüp (kodu, äripind, renoveerimine)",
+      "Asukoht ja eeldatav ajakava",
+      "Kas soovite hinnapakkumist või konsultatsiooni"
+    ],
+    "formDirect": "Või võtke otse ühendust:",
+    "formCardTitle": "Saada päring"
   },
   "categories": {
     "Arhitektuur": "Arhitektuur",

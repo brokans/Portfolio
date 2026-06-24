@@ -112,12 +112,21 @@
     "title": "Get in touch",
     "intro": "We are here to listen to your ideas and help find the right solution. Write, call or visit the studio – we will reply as soon as possible.",
     "teamTitle": "Team",
-    "formTitle": "Write to us",
-    "formSubtitle": "Briefly describe your project or idea – let us know if you would like a quote or a consultation.",
+    "formTitle": "Let's talk about your project",
+    "formSubtitle": "Briefly describe the space or project you are planning – this helps us suggest the right approach for a quote or consultation.",
     "mapTitle": "Location",
     "architect": "Architect",
     "draftsman": "Draftsman / 3D modeller",
-    "allStudios": "All studios"
+    "allStudios": "All studios",
+    "formEyebrow": "Inquiry",
+    "formNote": "We usually reply within one to two business days.",
+    "formHints": [
+      "Project type (home, commercial space, renovation)",
+      "Location and expected timeline",
+      "Whether you need a quote or a consultation"
+    ],
+    "formDirect": "Or contact us directly:",
+    "formCardTitle": "Send inquiry"
   },
   "categories": {
     "Arhitektuur": "Architecture",

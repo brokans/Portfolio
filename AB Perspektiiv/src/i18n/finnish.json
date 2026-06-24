@@ -112,12 +112,21 @@
     "title": "Ota yhteyttä",
     "intro": "Kuuntelemme ideoitasi ja autamme löytää sopivan ratkaisun. Kirjoita, soita tai tule studiolle – vastaamme mahdollisimman pian.",
     "teamTitle": "Tiimi",
-    "formTitle": "Kirjoita meille",
-    "formSubtitle": "Kerro lyhyesti projektist tai ideast – ilmoita, jos haluat hinta-arvion tai konsultaation.",
+    "formTitle": "Puhutaan projektist",
+    "formSubtitle": "Kerro lyhyesti, millainen tila tai projekti on kyseessä – näin voimme ehdottaa oikeaa lähestymistapaa tarjousta tai konsultaatiota varten.",
     "mapTitle": "Sijainti",
     "architect": "Arkkitehti",
     "draftsman": "Piirtäjä / 3D-mallintaja",
-    "allStudios": "Kaikki studiot"
+    "allStudios": "Kaikki studiot",
+    "formEyebrow": "Kysely",
+    "formNote": "Vastaamme yleensä yhden tai kaksi työpäivän kuluessa.",
+    "formHints": [
+      "Projektin tyyppi (koti, liiketila, remontti)",
+      "Sijainti ja ajankohta",
+      "Haluatte tarjouksen vai konsultaation"
+    ],
+    "formDirect": "Tai ota yhteyttä suoraan:",
+    "formCardTitle": "Lähetä kysely"
   },
   "categories": {
     "Arhitektuur": "Arkkitehtuuri",
