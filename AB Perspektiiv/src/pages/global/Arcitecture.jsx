@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet-async";
 import Footer from "../../components/home/Footer";
 import Carouselle from "../../components/home/Carouselles";
 import config from "../../data/config.json";
-import { useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 

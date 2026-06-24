@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
 // import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../components/home/Footer";
 import Email from "../../components/Email";
-import config from "../../data/config.json";
 
 import "../../App.css";
 
 function HomePage() {
-  const [projects, setProjects] = useState([]);
-  // const found = projects.filter(
-  //   (project) => project.category === "Sisearhitektuur"
-  // );
-
-  useEffect(() => {
-    fetch(config.projects)
-      .then((res) => res.json())
-      .then((json) => setProjects(json || []));
-  }, []);
-
   return (
     <div>
       <Helmet>

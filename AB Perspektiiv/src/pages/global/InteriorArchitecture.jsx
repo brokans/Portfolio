@@ -6,7 +6,6 @@ import config from "../../data/config.json";
 
 function Sisearhitektuur() {
   const [projects, setProjects] = useState([]);
-  const [randomHomePageImg, setRandomHomePageImg] = useState("");
   const found = projects.filter(
     (project) => project.category === "Sisearhitektuur"
   );
@@ -17,15 +16,6 @@ function Sisearhitektuur() {
       .then((json) => setProjects(json || []));
   }, []);
 
-  useEffect(() => {
-    if (found.length > 0) {
-      const randomIndex = Math.floor(Math.random() * found.length);
-      const randomProject = found[randomIndex];
-      if (randomProject && randomProject.photoOne) {
-        setRandomHomePageImg(randomProject.photoOne);
-      }
-    }
-  }, [found]);
   return (
     <div>
       <Helmet>
