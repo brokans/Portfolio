@@ -1,6 +1,9 @@
 {
   "nav": {
     "admin": "admin",
+    "architecture": "Architecture",
+    "interior": "Interior architecture",
+    "services": "Services",
     "contact": "Contacts",
     "shops": "Shops",
     "login": "Log In",
@@ -49,5 +52,63 @@
   "enter-product-upper": "Please enter product name in uppercase letter!",
   "product-entered": "Product successfully added! ",
   "product-deleted": "Product successfully deleted!",
-  "product-added": "Product successfully added to cart!"
+  "product-added": "Product successfully added to cart!",
+  "serviceItems": {
+    "architecturalDesign": "Architectural design",
+    "interiorDesign": "Interior architecture design",
+    "modeling3d": "3D visualization and modelling",
+    "moodboard": "Mood board creation",
+    "businessAnalysis": "Architectural analysis for business ideas",
+    "consultation": "Consultation"
+  },
+  "home": {
+    "hero": "We create the journey to your goals!",
+    "servicesTitle": "SERVICES",
+    "contactTitle": "Get in touch!"
+  },
+  "servicesPage": {
+    "title": "SERVICES",
+    "intro": "Our architecture studio offers a wide range of services to help you create spaces that are functional, aesthetically pleasing and timeless. Our work is driven by creativity and a strong sense of space – every project, whether designing a home or a workplace, is an opportunity to create an environment that meets your needs and reflects your personality. Architecture is not just about buildings – it is the living environment that shapes our daily life and wellbeing."
+  },
+  "project": {
+    "projects": "Projects",
+    "viewProject": "View project",
+    "location": "Location",
+    "completed": "Completed",
+    "area": "Area",
+    "author": "Author",
+    "photographer": "Photographer",
+    "visual": "Visual",
+    "notFound": "Project not found.",
+    "backToArchitecture": "Back to architecture page",
+    "moreProjects": "More projects",
+    "locationValue": "Location: {{value}}",
+    "completedValue": "Completed: {{value}}",
+    "areaValue": "Area: {{value}}",
+    "authorValue": "Author: {{value}}",
+    "architectureImageAlt": "Architecture project",
+    "interiorImageAlt": "Interior architecture project"
+  },
+  "footer": {
+    "companyName": "Architecture Studio Perspektiiv OÜ",
+    "tagline": "\"We create the journey to your goals\"",
+    "usefulLinks": "Useful links",
+    "contact": "Contact",
+    "copyright": "© 2024 Copyright"
+  },
+  "email": {
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Tell us about your idea!",
+    "send": "Send"
+  },
+  "contactPage": {
+    "architect": "Architect",
+    "draftsman": "Draftsman / 3D modeller",
+    "allStudios": "All studios"
+  },
+  "categories": {
+    "Arhitektuur": "Architecture",
+    "Sisearhitektuur": "Interior architecture"
+  }
 }

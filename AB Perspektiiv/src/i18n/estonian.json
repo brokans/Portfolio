@@ -1,6 +1,9 @@
 {
   "nav": {
     "admin": "admin",
+    "architecture": "Arhitektuur",
+    "interior": "Sisearhitektuur",
+    "services": "Teenused",
     "contact": "Kontaktid",
     "shops": "Poed",
     "login": "Sisselogimine",
@@ -58,5 +61,63 @@
   "enter-product-upper": "Palun sisestage toote nimi suure algustähega!",
   "product-entered": "Toode edukalt lisatud! ",
   "product-deleted": "Toode edukalt kustutatud! ",
-  "product-added": "Toode edukalt ostukorvi lisatud! "
+  "product-added": "Toode edukalt ostukorvi lisatud! ",
+  "serviceItems": {
+    "architecturalDesign": "Arhitektuurne projekteerimine",
+    "interiorDesign": "Sisearhitektuurne projekteerimine",
+    "modeling3d": "3D visualiseerimine ja mudeldamine",
+    "moodboard": "Mood boardide loomine",
+    "businessAnalysis": "Arhitektuurne analüüs äriideedele",
+    "consultation": "Konsultatsioon"
+  },
+  "home": {
+    "hero": "Meie loome teekonna eesmärkideni!",
+    "servicesTitle": "TEENUSED",
+    "contactTitle": "Võta ühendust!"
+  },
+  "servicesPage": {
+    "title": "TEENUSED",
+    "intro": "Meie arhitektuuribüroo pakub laia teenuste valikut, et aidata teil luua ruume, mis on funktsionaalsed, esteetiliselt meeldivad ja ajatud. Meie töö lähtub loovusest ja heast ruumitundest – iga projekt, olgu tegemist kodu või töökoha kujundamisega, on meile võimalus luua keskkond, mis vastab teie vajadustele ja peegeldab teie isikupära. Arhitektuur ei seisne vaid hoonetes – see on elukeskkond, mis mõjutab meie igapäevaelu ja heaolu."
+  },
+  "project": {
+    "projects": "Projektid",
+    "viewProject": "Vaata projekti",
+    "location": "Asukoht",
+    "completed": "Valminud",
+    "area": "Pindala",
+    "author": "Autor",
+    "photographer": "Fotograaf",
+    "visual": "Visuaal",
+    "notFound": "Projekti ei leitud.",
+    "backToArchitecture": "Tagasi arhitektuuri lehele",
+    "moreProjects": "Veel projekte",
+    "locationValue": "Asukoht: {{value}}",
+    "completedValue": "Valminud: {{value}}",
+    "areaValue": "Pindala: {{value}}",
+    "authorValue": "Autor: {{value}}",
+    "architectureImageAlt": "Arhitektuuriprojekt",
+    "interiorImageAlt": "Sisearhitektuuri projekt"
+  },
+  "footer": {
+    "companyName": "Arhitektuuribüroo Perspektiiv OÜ",
+    "tagline": "\"Meie loome teekonna eesmärkideni\"",
+    "usefulLinks": "Kasulikud lingid",
+    "contact": "Kontakt",
+    "copyright": "© 2024 Copyright"
+  },
+  "email": {
+    "name": "Nimi",
+    "email": "E-Mail",
+    "message": "Räägi oma ideest!",
+    "send": "Saada"
+  },
+  "contactPage": {
+    "architect": "Arhitekt",
+    "draftsman": "Joonestaja/3D modelleerija",
+    "allStudios": "Kõik Stuudiod"
+  },
+  "categories": {
+    "Arhitektuur": "Arhitektuur",
+    "Sisearhitektuur": "Sisearhitektuur"
+  }
 }

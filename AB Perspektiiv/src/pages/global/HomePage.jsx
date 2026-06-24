@@ -1,12 +1,31 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
-// import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../components/home/Footer";
 import Email from "../../components/Email";
 
 import "../../App.css";
 
+const SERVICE_KEYS = [
+  "architecturalDesign",
+  "interiorDesign",
+  "modeling3d",
+  "moodboard",
+  "businessAnalysis",
+  "consultation",
+];
+
+const SERVICE_ICONS = [
+  "/3d-printer.png",
+  "/interior-design.png",
+  "/cube.png",
+  "/moodboard.png",
+  "/analytics.png",
+  "/speech-bubble.png",
+];
+
 function HomePage() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <Helmet>
@@ -39,69 +58,39 @@ function HomePage() {
           alt="AB Perspektiiv arhitektuuri ja sisearhitektuuri projekt"
           className="homePageImg"
         />
-        <h1>
-          Meie loome teekonna eesmärkideni!
-        </h1>{" "}
+        <h1>{t("home.hero")}</h1>
         <br /> <br />
         <hr />
         <section className="services">
-          <h2>TEENUSED</h2>
+          <h2>{t("home.servicesTitle")}</h2>
           <div className="teenused">
             <div className="teenuste-container">
-              <div className="teenus">
-                <img
-                  className="avalehe-ikoonid"
-                  src="/3d-printer.png"
-                  alt="Arhitektuurne projekteerimine"
-                />
-                <p>Arhitektuurne projekteerimine</p>
-              </div>
-              <div className="teenus">
-                <img
-                  className="avalehe-ikoonid"
-                  src="/interior-design.png"
-                  alt="Sisearhitektuurne projekteerimine"
-                />
-                <p>Sisearhitektuurne projekteerimine</p>
-              </div>
-              <div className="teenus">
-                <img
-                  className="avalehe-ikoonid"
-                  src="/cube.png"
-                  alt="3D visualiseerimine ja mudeldamine"
-                />
-                <p>3D visualiseerimine ja mudeldamine</p>
-              </div>
+              {SERVICE_KEYS.slice(0, 3).map((key, index) => (
+                <div className="teenus" key={key}>
+                  <img
+                    className="avalehe-ikoonid"
+                    src={SERVICE_ICONS[index]}
+                    alt={t(`serviceItems.${key}`)}
+                  />
+                  <p>{t(`serviceItems.${key}`)}</p>
+                </div>
+              ))}
             </div>
             <div className="teenuste-container">
-              <div className="teenus">
-                <img
-                  className="avalehe-ikoonid"
-                  src="/moodboard.png"
-                  alt="Meeleolutahvlite loomine"
-                />
-                <p>Mood boardide loomine</p>
-              </div>
-              <div className="teenus">
-                <img
-                  className="avalehe-ikoonid"
-                  src="/analytics.png"
-                  alt="Arhitektuurne analüüs"
-                />
-                <p>Arhitektuurne analüüs äriideedele</p>
-              </div>
-              <div className="teenus">
-                <img
-                  className="avalehe-ikoonid"
-                  src="/speech-bubble.png"
-                  alt=""
-                />
-                <p>Konsultatsioon</p>
-              </div>
+              {SERVICE_KEYS.slice(3).map((key, index) => (
+                <div className="teenus" key={key}>
+                  <img
+                    className="avalehe-ikoonid"
+                    src={SERVICE_ICONS[index + 3]}
+                    alt={t(`serviceItems.${key}`)}
+                  />
+                  <p>{t(`serviceItems.${key}`)}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
-        <h2>Võta ühendust!</h2> <br /> <br />
+        <h2>{t("home.contactTitle")}</h2> <br /> <br />
         <Email />
         <br /> <br />
         <Footer />

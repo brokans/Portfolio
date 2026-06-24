@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import emailjs from "@emailjs/browser";
 
 function Email() {
   const form = useRef();
+  const { t } = useTranslation();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -31,7 +33,11 @@ function Email() {
     <div className="email-form">
       <Form ref={form} onSubmit={sendEmail}>
         <Form.Group style={{ width: "22rem", margin: "auto" }} className="mb-3">
-          <Form.Control type="text" placeholder="Nimi" name="from_name" />
+          <Form.Control
+            type="text"
+            placeholder={t("email.name")}
+            name="from_name"
+          />
         </Form.Group>
         <Form.Group
           style={{ width: "22rem", margin: "auto" }}
@@ -40,7 +46,7 @@ function Email() {
           <Form.Control
             className="mb-3"
             type="email"
-            placeholder="E-Mail"
+            placeholder={t("email.email")}
             name="from_email"
           />
         </Form.Group>
@@ -52,13 +58,13 @@ function Email() {
         >
           <Form.Control
             as="textarea"
-            placeholder="Räägi oma ideest!"
+            placeholder={t("email.message")}
             rows={5}
             name="message"
           />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Saada
+          {t("email.send")}
         </Button>
       </Form>
     </div>

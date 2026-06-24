@@ -1,3 +1,5 @@
+import i18n from "../i18n";
+
 export function getVisualCredit(project) {
   if (!project) {
     return null;
@@ -5,12 +7,12 @@ export function getVisualCredit(project) {
 
   const fotograaf = project.fotograaf?.trim();
   if (fotograaf) {
-    return { label: "Fotograaf", value: fotograaf };
+    return { label: i18n.t("project.photographer"), value: fotograaf };
   }
 
   const visuaal = project.visuaal?.trim() || project.projekt?.trim();
   if (visuaal) {
-    return { label: "Visuaal", value: visuaal };
+    return { label: i18n.t("project.visual"), value: visuaal };
   }
 
   return null;

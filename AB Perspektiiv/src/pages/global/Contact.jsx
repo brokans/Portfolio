@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import Map from "../../components/Map";
 import Button from "react-bootstrap/Button";
 import config from "../../data/config.json";
 import Footer from "../../components/home/Footer";
 
 export const Contact = () => {
+  const { t } = useTranslation();
   const [shops, uShops] = useState([]);
 
   const [coordinaates, setCoordinates] = useState({
@@ -37,7 +39,7 @@ export const Contact = () => {
             alt=""
           />
           <h4>Angeelika Saaron</h4>
-          <p>Arhitekt</p>
+          <p>{t("contactPage.architect")}</p>
           <p>
             <a href="mailto:angeelika.saaron@abperspektiiv.com">
               angeelika.saaron@abperspektiiv.com{" "}
@@ -51,7 +53,7 @@ export const Contact = () => {
         <div className="contact">
           <img src="https://i.postimg.cc/jS5R0qr7/IMG-9879.jpg" alt="" />
           <h4>Mario Brokans</h4>
-          <p>Joonestaja/3D modelleerija</p>
+          <p>{t("contactPage.draftsman")}</p>
         </div>
       </div>
       {shops.map((shop) => (
@@ -76,7 +78,7 @@ export const Contact = () => {
           className="gold-btn"
           variant="dark"
         >
-          Kõik Stuudiod
+          {t("contactPage.allStudios")}
         </Button>{" "}
         {/* <Button
           onClick={() =>

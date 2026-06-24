@@ -1,9 +1,29 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import Footer from "../../components/home/Footer";
 import Email from "../../components/Email";
 
+const SERVICE_KEYS = [
+  "architecturalDesign",
+  "interiorDesign",
+  "modeling3d",
+  "moodboard",
+  "businessAnalysis",
+  "consultation",
+];
+
+const SERVICE_ICONS = [
+  "/3d-printer.png",
+  "/interior-design.png",
+  "/cube.png",
+  "/moodboard.png",
+  "/analytics.png",
+  "/speech-bubble.png",
+];
+
 function Services() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <Helmet>
@@ -22,47 +42,20 @@ function Services() {
           <img src="https://i.postimg.cc/W4zzn64x/Z62-7291.jpg" alt="" />
         </div>
         <div className="services-tekst">
-          <h2>TEENUSED</h2>
+          <h2>{t("servicesPage.title")}</h2>
           <div className="teenused">
+            {SERVICE_KEYS.map((key, index) => (
+              <div className="service" key={key}>
+                <img
+                  className="service-icon"
+                  src={SERVICE_ICONS[index]}
+                  alt={t(`serviceItems.${key}`)}
+                />
+                <p>{t(`serviceItems.${key}`)}</p>
+              </div>
+            ))}
             <div className="service">
-              <img className="service-icon" src="/3d-printer.png" alt="" />
-              <p>Arhitektuurne projekteerimine</p>
-            </div>
-
-            <div className="service">
-              <img
-                className="service-icon"
-                src="/interior-design.png"
-                alt=""
-              />
-              <p>Sisearhitektuurne projekteerimine</p>
-            </div>
-            <div className="service">
-              <img className="service-icon" src="/cube.png" alt="" />
-              <p>3D visualiseerimine ja mudeldamine</p>
-            </div>
-            <div className="service">
-              <img className="service-icon" src="/moodboard.png" alt="" />
-              <p>Mood boardide loomine</p>
-            </div>
-            <div className="service">
-              <img className="service-icon" src="/analytics.png" alt="" />
-              <p>Arhitektuurne analüüs äriideedele</p>
-            </div>
-            <div className="service">
-              <img className="service-icon" src="/speech-bubble.png" alt="" />
-              <p>Konsultatsioon</p>
-            </div>
-            <div className="service">
-              <p className="services-info">
-                Meie arhitektuuribüroo pakub laia teenuste valikut, et aidata
-                teil luua ruume, mis on funktsionaalsed, esteetiliselt meeldivad
-                ja ajatud. Meie töö lähtub loovusest ja heast ruumitundest – iga
-                projekt, olgu tegemist kodu või töökoha kujundamisega, on meile
-                võimalus luua keskkond, mis vastab teie vajadustele ja peegeldab
-                teie isikupära. Arhitektuur ei seisne vaid hoonetes – see on
-                elukeskkond, mis mõjutab meie igapäevaelu ja heaolu.
-              </p>
+              <p className="services-info">{t("servicesPage.intro")}</p>
             </div>
           </div>
         </div>

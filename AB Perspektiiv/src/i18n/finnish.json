@@ -1,6 +1,9 @@
 {
   "nav": {
     "admin": "admin",
+    "architecture": "Arkkitehtuuri",
+    "interior": "Sisustusarkkitehtuuri",
+    "services": "Palvelut",
     "contact": "Yhteystiedot",
     "shops": "Kaupat",
     "login": "Kirjaudu sisään",
@@ -49,5 +52,63 @@
   "enter-product-upper": "Syötä tuotenimi isolla alkukirjaimella!",
   "product-entered": "Tuote lisätty onnistuneesti! ",
   "product-deleted": "Tuote poistettu onnistuneesti!",
-  "product-added": "Tuote lisätty ostoskoriin onnistuneesti!"
+  "product-added": "Tuote lisätty ostoskoriin onnistuneesti!",
+  "serviceItems": {
+    "architecturalDesign": "Arkkitehtuuri suunnittelu",
+    "interiorDesign": "Sisustusarkkitehtuuri suunnittelu",
+    "modeling3d": "3D-visualisointi ja mallinnus",
+    "moodboard": "Mood boardien luonti",
+    "businessAnalysis": "Arkkitehtuuri analyysi liideille",
+    "consultation": "Konsultaatio"
+  },
+  "home": {
+    "hero": "Luomme matkan tavoitteisiin!",
+    "servicesTitle": "PALVELUT",
+    "contactTitle": "Ota yhteyttä!"
+  },
+  "servicesPage": {
+    "title": "PALVELUT",
+    "intro": "Arkkitehtuuritoimistomme tarjoaa laajan palveluvalikoiman, joka auttaa sinua luoda tiloja, jotka ovat toimivia, esteettisesti miellyttäviä ja ajattomia. Työskentelemme luovuuden ja hyvän tilatunteen pohjalta – jokainen projekti, olipa kyse kodin tai työpaikan suunnittelusta, on mahdollisuus luoda ympäristö, joka vastaa tarpeisiin ja peilaa persoonallisuutta. Arkkitehtuuri ei ole vain rakennuksia – se on elinympäristö, joka vaikuttaa päivittäiseen elämään ja hyvinvointiin."
+  },
+  "project": {
+    "projects": "Projektit",
+    "viewProject": "Katso projekti",
+    "location": "Sijainti",
+    "completed": "Valmistunut",
+    "area": "Pinta-ala",
+    "author": "Tekijä",
+    "photographer": "Valokuvaaja",
+    "visual": "Visuaali",
+    "notFound": "Projektia ei löytynyt.",
+    "backToArchitecture": "Takaisin arkkitehtuurisivulle",
+    "moreProjects": "Lisää projekteja",
+    "locationValue": "Sijainti: {{value}}",
+    "completedValue": "Valmistunut: {{value}}",
+    "areaValue": "Pinta-ala: {{value}}",
+    "authorValue": "Tekijä: {{value}}",
+    "architectureImageAlt": "Arkkitehtuuriprojekti",
+    "interiorImageAlt": "Sisustusarkkitehtuuriprojekti"
+  },
+  "footer": {
+    "companyName": "Arkkitehtitoimisto Perspektiiv OÜ",
+    "tagline": "\"Luomme matkan tavoitteisiin\"",
+    "usefulLinks": "Hyödylliset linkit",
+    "contact": "Yhteystiedot",
+    "copyright": "© 2024 Copyright"
+  },
+  "email": {
+    "name": "Nimi",
+    "email": "Sähköposti",
+    "message": "Kerro ideasi!",
+    "send": "Lähetä"
+  },
+  "contactPage": {
+    "architect": "Arkkitehti",
+    "draftsman": "Piirtäjä / 3D-mallintaja",
+    "allStudios": "Kaikki studiot"
+  },
+  "categories": {
+    "Arhitektuur": "Arkkitehtuuri",
+    "Sisearhitektuur": "Sisustusarkkitehtuuri"
+  }
 }

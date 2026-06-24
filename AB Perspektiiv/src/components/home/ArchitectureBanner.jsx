@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Carousel from "react-bootstrap/Carousel";
 import config from "../../data/config.json";
 import { getVisualCredit } from "../../lib/projectVisualCredit";
@@ -22,7 +23,11 @@ function VisualCreditRow({ project }) {
   return <InfoRow label={credit.label} value={credit.value} />;
 }
 
-function ArchitectureBanner({ category = "Arhitektuur", imageAlt = "Arhitektuuriprojekt" }) {
+function ArchitectureBanner({
+  category = "Arhitektuur",
+  imageAlt = "Arhitektuuriprojekt",
+}) {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -53,10 +58,7 @@ function ArchitectureBanner({ category = "Arhitektuur", imageAlt = "Arhitektuuri
         {bannerProjects.map((project, index) => (
           <Carousel.Item key={`${project.name}-${index}`}>
             {project.photoOne && (
-              <img
-                src={project.photoOne}
-                alt={project.name || imageAlt}
-              />
+              <img src={project.photoOne} alt={project.name || imageAlt} />
             )}
           </Carousel.Item>
         ))}
@@ -68,9 +70,9 @@ function ArchitectureBanner({ category = "Arhitektuur", imageAlt = "Arhitektuuri
             {activeProject.name}
           </h2>
           <div className="architecture-banner-card__body">
-            <InfoRow label="Asukoht" value={activeProject.asukoht} />
-            <InfoRow label="Valminud" value={activeProject.valminud} />
-            <InfoRow label="Pindala" value={activeProject.pindala} />
+            <InfoRow label={t("project.location")} value={activeProject.asukoht} />
+            <InfoRow label={t("project.completed")} value={activeProject.valminud} />
+            <InfoRow label={t("project.area")} value={activeProject.pindala} />
             <VisualCreditRow project={activeProject} />
           </div>
         </article>

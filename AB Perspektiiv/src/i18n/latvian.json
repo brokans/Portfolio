@@ -1,6 +1,9 @@
 {
   "nav": {
     "admin": "administrators",
+    "architecture": "Arhitektūra",
+    "interior": "Interjera arhitektūra",
+    "services": "Pakalpojumi",
     "contact": "Kontakti",
     "shops": "Veikali",
     "login": "Ienākt",
@@ -49,5 +52,63 @@
   "enter-product-upper": "Lūdzu, ievadiet produkta nosaukumu ar lielo sākumburtu!",
   "product-entered": "Produkts veiksmīgi pievienots! ",
   "product-deleted": "Produkts veiksmīgi dzēsts!",
-  "product-added": "Produkts veiksmīgi pievienots iepirkumu grozam!"
+  "product-added": "Produkts veiksmīgi pievienots iepirkumu grozam!",
+  "serviceItems": {
+    "architecturalDesign": "Arhitektūras projektēšana",
+    "interiorDesign": "Interjera arhitektūras projektēšana",
+    "modeling3d": "3D vizualizācija un modelēšana",
+    "moodboard": "Mood board izveide",
+    "businessAnalysis": "Arhitektūras analīze biznesa idejām",
+    "consultation": "Konsultācija"
+  },
+  "home": {
+    "hero": "Mēs veidojam ceļu uz mērķiem!",
+    "servicesTitle": "PAKALPOJUMI",
+    "contactTitle": "Sazinieties ar mums!"
+  },
+  "servicesPage": {
+    "title": "PAKALPOJUMI",
+    "intro": "Mūsu arhitektūras birojs piedāvā plašu pakalpojumu klāstu, lai palīdzētu jums radīt telpas, kas ir funkcionālas, estētiski patīkamas un laikmetīgas. Mūsu darbs balstās uz radošumu un labu telpas izpratni – katrs projekts, neatkarīgi no tā, vai tiek projektēta māja vai darba vieta, ir iespēja radīt vidi, kas atbilst jūsu vajadzībām un atspoguļo jūsu personību. Arhitektūra nav tikai ēkas – tā ir dzīves vide, kas ietekmē ikdienas dzīvi un labsajūtu."
+  },
+  "project": {
+    "projects": "Projekti",
+    "viewProject": "Skatīt projektu",
+    "location": "Vieta",
+    "completed": "Pabeigts",
+    "area": "Platība",
+    "author": "Autors",
+    "photographer": "Fotogrāfs",
+    "visual": "Vizuāls",
+    "notFound": "Projekts nav atrasts.",
+    "backToArchitecture": "Atpakaļ uz arhitektūras lapu",
+    "moreProjects": "Vairāk projektu",
+    "locationValue": "Vieta: {{value}}",
+    "completedValue": "Pabeigts: {{value}}",
+    "areaValue": "Platība: {{value}}",
+    "authorValue": "Autors: {{value}}",
+    "architectureImageAlt": "Arhitektūras projekts",
+    "interiorImageAlt": "Interjera arhitektūras projekts"
+  },
+  "footer": {
+    "companyName": "Arhitektūras birojs Perspektiiv OÜ",
+    "tagline": "\"Mēs veidojam ceļu uz mērķiem\"",
+    "usefulLinks": "Noderīgas saites",
+    "contact": "Kontakti",
+    "copyright": "© 2024 Copyright"
+  },
+  "email": {
+    "name": "Nosaukums",
+    "email": "E-pasts",
+    "message": "Pastāstiet par savu ideju!",
+    "send": "Sūtīt"
+  },
+  "contactPage": {
+    "architect": "Arhitekts",
+    "draftsman": "Zīmētājs / 3D modelētājs",
+    "allStudios": "Visi studiji"
+  },
+  "categories": {
+    "Arhitektuur": "Arhitektūra",
+    "Sisearhitektuur": "Interjera arhitektūra"
+  }
 }

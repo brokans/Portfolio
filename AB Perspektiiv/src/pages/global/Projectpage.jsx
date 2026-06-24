@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Footer from "../../components/home/Footer";
 import Carousel from "react-bootstrap/Carousel";
 import config from "../../data/config.json";
@@ -21,6 +22,7 @@ const PHOTO_KEYS = [
 ];
 
 function ProjectPage() {
+  const { t } = useTranslation();
   const { name } = useParams();
   const decodedName = decodeURIComponent(name || "");
   const [projects, setProjects] = useState([]);
@@ -38,8 +40,8 @@ function ProjectPage() {
   if (!project) {
     return (
       <div className="project-detail-page">
-        <p className="project-detail-page__missing">Projekti ei leitud.</p>
-        <Link to="/arhitektuur">Tagasi arhitektuuri lehele</Link>
+        <p className="project-detail-page__missing">{t("project.notFound")}</p>
+        <Link to="/arhitektuur">{t("project.backToArchitecture")}</Link>
         <Footer />
       </div>
     );
@@ -47,6 +49,9 @@ function ProjectPage() {
 
   const photos = PHOTO_KEYS.map((key) => project[key]).filter(Boolean);
   const visualCredit = getVisualCredit(project);
+  const categoryLabel = t(`categories.${project.category}`, {
+    defaultValue: project.category,
+  });
 
   return (
     <div className="project-detail-page">
@@ -74,12 +79,20 @@ function ProjectPage() {
         </div>
 
         <aside className="project-detail__info">
-          <p className="project-detail__eyebrow">{project.category}</p>
+          <p className="project-detail__eyebrow">{categoryLabel}</p>
           <h1>{project.name}</h1>
-          {project.asukoht && <p>Asukoht: {project.asukoht}</p>}
-          {project.valminud && <p>Valminud: {project.valminud}</p>}
-          {project.pindala && <p>Pindala: {project.pindala}</p>}
-          {project.autor && <p>Autor: {project.autor}</p>}
+          {project.asukoht && (
+            <p>{t("project.locationValue", { value: project.asukoht })}</p>
+          )}
+          {project.valminud && (
+            <p>{t("project.completedValue", { value: project.valminud })}</p>
+          )}
+          {project.pindala && (
+            <p>{t("project.areaValue", { value: project.pindala })}</p>
+          )}
+          {project.autor && (
+            <p>{t("project.authorValue", { value: project.autor })}</p>
+          )}
           {visualCredit && (
             <p>
               {visualCredit.label}: {visualCredit.value}
@@ -90,7 +103,7 @@ function ProjectPage() {
 
       {relatedProjects.length > 0 && (
         <section className="project-detail-related">
-          <h2>Veel projekte</h2>
+          <h2>{t("project.moreProjects")}</h2>
           <div className="architecture-projects__grid">
             {relatedProjects.map((related, index) => (
               <Link
@@ -105,7 +118,9 @@ function ProjectPage() {
                 </div>
                 <div className="architecture-project-card__body">
                   <h3 className="architecture-project-card__name">{related.name}</h3>
-                  <span className="architecture-project-card__cta">Vaata projekti</span>
+                  <span className="architecture-project-card__cta">
+                    {t("project.viewProject")}
+                  </span>
                 </div>
               </Link>
             ))}
