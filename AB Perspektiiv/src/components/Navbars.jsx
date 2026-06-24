@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import i18n from "../i18n";
@@ -24,6 +25,9 @@ function changeLanguage(code) {
 function Navbars() {
   const { t } = useTranslation();
   const activeLanguage = i18n.resolvedLanguage || i18n.language;
+  const activeLang =
+    LANGUAGES.find((language) => language.code === activeLanguage) ||
+    LANGUAGES[0];
 
   return (
     <Navbar expand="lg" className="navigation fixed-top">
@@ -54,21 +58,30 @@ function Navbars() {
                 {t("nav.contact")}
               </NavLink>
             </Nav.Item>
-            <Nav.Item className="site-lang-switcher" role="group" aria-label="Keel">
-              {LANGUAGES.map((language) => (
-                <button
-                  key={language.code}
-                  type="button"
-                  className={`site-lang-btn${
-                    activeLanguage === language.code ? " is-active" : ""
-                  }`}
-                  onClick={() => changeLanguage(language.code)}
-                  aria-pressed={activeLanguage === language.code}
-                  aria-label={language.name}
+            <Nav.Item className="site-lang-dropdown">
+              <Dropdown align="end">
+                <Dropdown.Toggle
+                  id="language-dropdown"
+                  variant="link"
+                  className="nav-link site-nav-link site-lang-toggle"
+                  aria-label="Keel"
                 >
-                  {language.label}
-                </button>
-              ))}
+                  {activeLang.label}
+                  <span className="site-lang-caret" aria-hidden="true" />
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="site-lang-menu">
+                  {LANGUAGES.map((language) => (
+                    <Dropdown.Item
+                      key={language.code}
+                      active={activeLanguage === language.code}
+                      className="site-lang-option"
+                      onClick={() => changeLanguage(language.code)}
+                    >
+                      {language.label}
+                    </Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
