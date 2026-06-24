@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import Footer from "../../components/home/Footer";
 import ArchitectureBanner from "../../components/home/ArchitectureBanner";
 import ArchitectureProjectGrid from "../../components/home/ArchitectureProjectGrid";
 import config from "../../data/config.json";
 
 function Arhitektuur() {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
   const architectureProjects = projects.filter(
     (project) => project.category === "Arhitektuur"
@@ -29,8 +31,11 @@ function Arhitektuur() {
         />
         <link rel="canonical" href="https://abperspektiiv.com/arhitektuur" />
       </Helmet>
-      <ArchitectureBanner />
-      <ArchitectureProjectGrid projects={architectureProjects} />
+      <ArchitectureBanner imageAlt={t("project.architectureImageAlt")} />
+      <ArchitectureProjectGrid
+        projects={architectureProjects}
+        imageAlt={t("project.architectureImageAlt")}
+      />
       <div className="footer">
         <Footer />
       </div>

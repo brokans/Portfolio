@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-function ArchitectureProjectGrid({ projects }) {
+function ArchitectureProjectGrid({
+  projects,
+  imageAlt = "Arhitektuuriprojekt",
+}) {
+  const { t } = useTranslation();
+
   if (!projects.length) {
     return null;
   }
 
   return (
-    <section className="architecture-projects" aria-labelledby="architecture-projects-title">
+    <section
+      className="architecture-projects"
+      aria-labelledby="architecture-projects-title"
+    >
       <h2 id="architecture-projects-title" className="architecture-projects__title">
-        Projektid
+        {t("project.projects")}
       </h2>
       <div className="architecture-projects__grid">
         {projects.map((project, index) => (
@@ -21,7 +30,7 @@ function ArchitectureProjectGrid({ projects }) {
               {project.photoOne ? (
                 <img
                   src={project.photoOne}
-                  alt={project.name || "Arhitektuuriprojekt"}
+                  alt={project.name || imageAlt}
                   loading="lazy"
                 />
               ) : (
@@ -35,7 +44,9 @@ function ArchitectureProjectGrid({ projects }) {
                   .filter(Boolean)
                   .join(" · ")}
               </p>
-              <span className="architecture-project-card__cta">Vaata projekti</span>
+              <span className="architecture-project-card__cta">
+                {t("project.viewProject")}
+              </span>
             </div>
           </Link>
         ))}

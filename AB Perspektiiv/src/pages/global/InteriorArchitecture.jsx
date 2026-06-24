@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import Carousel from "react-bootstrap/Carousel";
+import { useTranslation } from "react-i18next";
 import Footer from "../../components/home/Footer";
 import ArchitectureBanner from "../../components/home/ArchitectureBanner";
+import ArchitectureProjectGrid from "../../components/home/ArchitectureProjectGrid";
 import config from "../../data/config.json";
 
 function Sisearhitektuur() {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
-  const found = projects.filter(
+  const interiorProjects = projects.filter(
     (project) => project.category === "Sisearhitektuur"
   );
 
@@ -32,149 +34,12 @@ function Sisearhitektuur() {
       </Helmet>
       <ArchitectureBanner
         category="Sisearhitektuur"
-        imageAlt="Sisearhitektuuri projekt"
+        imageAlt={t("project.interiorImageAlt")}
       />
-      {/* <article className="sa-info">
-        <h1>Valga Kodu</h1>
-        <p>
-          Asukoht: <strong>VALGA</strong>
-        </p>
-        <p>
-          Valminud: <strong>2024</strong>
-        </p>
-        <p>
-          Pindala: <strong>45m²</strong>
-        </p>
-        <p>
-          Autor: <strong>Angeelika Saaron</strong>
-        </p>
-        <p>
-          Fotograaf: <strong>Lisette Laanoja</strong>
-        </p>
-      </article> */}
-      {/* <div className="project-container">
-        <div className="project-img-info-container">
-          <div className="carousel-container-int">
-            <Carousel className="carousel-int" fade>
-              {found.flatMap((project) =>
-                ["photoOne", "photoTwo", "photoThree", "photoFour", "photoFive"]
-                  .map((key) => project[key])
-                  .filter(Boolean)
-                  .map((photo, index) => (
-                    <Carousel.Item
-                      key={`${project.id}-${index}`}
-                      interval={3000}
-                    >
-                      <img src={photo} alt={`Project ${project.id}`} />
-                    </Carousel.Item>
-                  ))
-              )}
-            </Carousel>
-          </div>
-          <div className="project-info-container">
-            <h1 className="project-name">{project.name}</h1>
-              <p className="project-info">{project.info}</p>
-            <h1 className="project-name">Valga Kodu</h1>
-            <p className="project-info">
-              Asukoht: <strong>VALGA</strong>
-            </p>
-            <p className="project-info">
-              Valminud: <strong>2024</strong>
-            </p>
-            <p className="project-info">
-              Pindala: <strong>45m²</strong>
-            </p>
-            <p className="project-info">
-              Autor: <strong>Angeelika Saaron</strong>
-            </p>
-            <p className="project-info">
-              Fotograaf: <strong>Lisette Laanoja</strong>
-            </p>
-          </div>
-        </div>
-      </div> */}
-
-      {found.map((project) => (
-        <div className="project-container">
-          <div className="project-img-info-container">
-            <div className="carousel-container">
-              <Carousel className="carousel-img" fade interval={3000}>
-                {project.photoOne && (
-                  <Carousel.Item>
-                    <img src={project.photoOne} alt="" />
-                  </Carousel.Item>
-                )}
-                {project.photoTwo && (
-                  <Carousel.Item>
-                    <img src={project.photoTwo} alt="" />
-                  </Carousel.Item>
-                )}
-                {project.photoThree && (
-                  <Carousel.Item>
-                    <img src={project.photoThree} alt="" />
-                  </Carousel.Item>
-                )}
-                {project.photoFour && (
-                  <Carousel.Item>
-                    <img src={project.photoFour} alt="" />
-                  </Carousel.Item>
-                )}
-                {project.photoFive && (
-                  <Carousel.Item>
-                    <img src={project.photoFive} alt="" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                )}
-                {project.photoSix && (
-                  <Carousel.Item>
-                    <img src={project.photoSix} alt="" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                )}
-                {project.photoSeven && (
-                  <Carousel.Item>
-                    <img src={project.photoSeven} alt="" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                )}
-                {project.photoEight && (
-                  <Carousel.Item>
-                    <img src={project.photoEight} alt="" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                )}
-                {project.photoNine && (
-                  <Carousel.Item>
-                    <img src={project.photoTen} alt="" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                )}
-                {project.photoEleven && (
-                  <Carousel.Item>
-                    <img src={project.photoEleven} alt="" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                )}
-                {project.photoSix && (
-                  <Carousel.Item>
-                    <img src={project.photoSix} alt="" />
-                    <Carousel.Caption></Carousel.Caption>
-                  </Carousel.Item>
-                )}
-              </Carousel>
-            </div>
-            <div className="project-info-container">
-              <h1 className="project-name">{project.name}</h1>
-              <p className="project-info">Asukoht: {project.asukoht}</p>
-              <p className="project-info">Valminud: {project.valminud}</p>
-              <p className="project-info">Projekt: {project.projekt}</p>
-              <p className="project-info">Pindala: {project.pindala}</p>
-              <p className="project-info">Autor: {project.autor}</p>
-              <p className="project-info">Fotograaf: {project.fotograaf}</p>
-            </div>
-          </div>
-        </div>
-      ))}
+      <ArchitectureProjectGrid
+        projects={interiorProjects}
+        imageAlt={t("project.interiorImageAlt")}
+      />
       <div className="footer">
         <Footer />
       </div>
