@@ -5,6 +5,11 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import ChangeView from "./ChangeView";
 import config from "../data/config.json";
 import { useEffect, useState } from "react";
+import {
+  getShopDirectionsUrl,
+  getShopPosition,
+  normalizeShop,
+} from "../lib/shopMaps";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -16,17 +21,19 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function Map({ mapCoordinaates, shops: shopsProp }) {
-  const [shops, setShops] = useState(shopsProp || []);
+  const [shops, setShops] = useState([]);
 
   useEffect(() => {
-    if (shopsProp) {
-      setShops(shopsProp);
+    const source = shopsProp || null;
+
+    if (source) {
+      setShops(source.map(normalizeShop));
       return;
     }
 
     fetch(config.shops)
       .then((res) => res.json())
-      .then((json) => setShops(json || []));
+      .then((json) => setShops((json || []).map(normalizeShop)));
   }, [shopsProp]);
 
   return (
@@ -45,24 +52,31 @@ function Map({ mapCoordinaates, shops: shopsProp }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {shops.map((shop) => (
-          <Marker key={shop.name} position={[shop.lati, shop.long]}>
-            <Popup>
-              {shop.name}
-              <br />
-              {"Avatud: "}
-              {shop.open}
-              <br />
-              {shop.address}
-              <br />
-              {shop.url && (
-                <a href={shop.url} target="_blank" rel="noreferrer">
-                  Juhised
-                </a>
-              )}
-            </Popup>
-          </Marker>
-        ))}
+        {shops.map((shop) => {
+          const position = getShopPosition(shop);
+          if (!position) return null;
+
+          const directionsUrl = getShopDirectionsUrl(shop);
+
+          return (
+            <Marker key={shop.name} position={position}>
+              <Popup>
+                {shop.name}
+                <br />
+                {"Avatud: "}
+                {shop.open}
+                <br />
+                {shop.address}
+                <br />
+                {directionsUrl && (
+                  <a href={directionsUrl} target="_blank" rel="noreferrer">
+                    Juhised
+                  </a>
+                )}
+              </Popup>
+            </Marker>
+          );
+        })}
       </MapContainer>
     </div>
   );
