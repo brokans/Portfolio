@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AddProjectModul from "../../components/admin/AddProjectModal";
-import EditModal from "../../components/admin/EditModal"
 
 function MaintainProjects(props) {
   const [projects, setProjects] = useState([]);
@@ -23,12 +23,10 @@ function MaintainProjects(props) {
   }, []);
 
   function deleteProject(index) {
-    projects.splice(index, 1);
-    setProjects(projects.slice());
-    fetch(config.projects, {
-      method: "PUT",
-      body: JSON.stringify(projects),
-    });
+    const updatedProjects = projects.filter((_, i) => i !== index);
+    setProjects(updatedProjects);
+    setDbProjects(updatedProjects);
+    writeCollection("projects", updatedProjects);
   }
 
   function searchFromProducts() {

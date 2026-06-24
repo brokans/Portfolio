@@ -3,8 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import { Spinner } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
 
 function EditModal(props) {
   const [projects, setProjects] = useState([]);
@@ -13,7 +13,6 @@ function EditModal(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { t } = useTranslation();
   const nameRef = useRef();
   const categoryRef = useRef();
   const imgRefOne = useRef();
@@ -66,10 +65,7 @@ function EditModal(props) {
     });
     setProjects(projects.slice());
 
-    fetch(config.projects, {
-      method: "PUT",
-      body: JSON.stringify(projects),
-    });
+    writeCollection("projects", projects);
   }
 
   if (isLoading === true) {

@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Spinner } from "react-bootstrap";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import EditModal from "../../components/admin/EditModal";
 import MaintainCategoriesModal from "../../components/admin/MaintainCategoriesModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,7 +22,7 @@ function MaintainProducts() {
   const [dbProducts, setDbProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(20);
+  const postsPerPage = 20;
   const [leftButtonDisabled, setLeftButtonDisabled] = useState(true);
   const [rightButtonDisabled, setRightButtonDisabled] = useState(false);
   const searchedRef = useRef();
@@ -47,17 +48,15 @@ function MaintainProducts() {
   }
 
   function deleteProduct(productId) {
-    const index = dbProducts.findIndex(product => product.id === productId)
-    dbProducts.splice(index, 1);
-    fetch(
-      config.products,
-      { 
-        method: "PUT", 
-        body: JSON.stringify(dbProducts) 
-      }).then(() => {
-        setMessage("Toode kustutatud!");
-        searchFromProducts();
-      })
+    const updatedProducts = dbProducts.filter(
+      (product) => product.id !== productId
+    );
+    setDbProducts(updatedProducts);
+    setProducts(updatedProducts);
+    writeCollection("products", updatedProducts).then(() => {
+      setMessage("Toode kustutatud!");
+      searchFromProducts();
+    });
   }
 
   function searchFromProducts() {

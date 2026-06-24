@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -31,10 +32,7 @@ function MaintainCategories() {
       const newCategory = { name: newCategoryName };
       const updatedCategories = [...categories, newCategory];
 
-      fetch(config.categories, {
-        method: "PUT",
-        body: JSON.stringify(updatedCategories),
-      })
+      writeCollection("categories", updatedCategories)
         .then(() => {
           setCategories(updatedCategories);
           handleClose();
@@ -46,12 +44,9 @@ function MaintainCategories() {
   }
 
   function deleteCategory(index) {
-    categories.splice(index, 1);
-    setCategories(categories.slice());
-    fetch(config.categories, {
-      method: "PUT",
-      body: JSON.stringify(categories),
-    });
+    const updatedCategories = categories.filter((_, i) => i !== index);
+    setCategories(updatedCategories);
+    writeCollection("categories", updatedCategories);
   }
 
   return (

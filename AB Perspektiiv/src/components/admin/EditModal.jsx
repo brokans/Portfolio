@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import { Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from "react-toastify";
@@ -25,7 +26,6 @@ function EditModal(props) {
   const activeRef = useRef();
   const [idUnique, uIdUnique] = useState(true);
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isChangesSaved, setIsChangesSaved] = useState(false);
   const navigate = useNavigate();
@@ -43,15 +43,6 @@ function EditModal(props) {
       .then((res) => res.json())
       .then((json) => {
         setProducts(json || []);
-        setLoading(false);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch(config.categories)
-      .then((res) => res.json())
-      .then((json) => {
-        setCategories(json || []);
         setLoading(false);
       });
   }, []);
@@ -89,10 +80,7 @@ function EditModal(props) {
       category: categoryRef.current.value,
       active: activeRef.current.checked,
     };
-    fetch(config.products, {
-      method: "PUT",
-      body: JSON.stringify(products),
-    }).then(() => {
+    writeCollection("products", products).then(() => {
       setIsChangesSaved(true);
       navigate("/admin/maintain-products");
     });

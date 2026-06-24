@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import Form from "react-bootstrap/Form";
 import { Button, Spinner } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
@@ -75,10 +76,9 @@ function EditProject() {
       autor: autorRef.current.value,
       fotograaf: fotograafRef.current.value
     };
-    fetch(config.projects, {
-      method: "PUT",
-      body: JSON.stringify(projects),
-    }).then(() => navigate("/admin/maintain-projects"));
+    writeCollection("projects", projects).then(() =>
+      navigate("/admin/maintain-projects")
+    );
   }
 
   if (isLoading === true) {

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -33,18 +34,12 @@ function HaldaAsukohtasid() {
     });
     uShops(shops.slice());
 
-    fetch(config.shops, {
-      method: "PUT",
-      body: JSON.stringify(shops),
-    });
+    writeCollection("shops", shops);
   }
   function deleteShop(index) {
-    shops.splice(index, 1);
-    uShops(shops.slice());
-    fetch(config.shops, {
-      method: "PUT",
-      body: JSON.stringify(shops),
-    });
+    const updatedShops = shops.filter((_, i) => i !== index);
+    uShops(updatedShops);
+    writeCollection("shops", updatedShops);
   }
 
   if (isLoading === true) {

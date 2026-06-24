@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import { useParams } from "react-router-dom";
 
 function AddProductModal(props) {
@@ -65,10 +66,7 @@ function AddProductModal(props) {
       categoryRef.current.value = "";
       activeRef.current.value = false;
 
-      fetch(config.products, {
-        method: "PUT",
-        body: JSON.stringify(products),
-      });
+      writeCollection("products", products);
     }
   };
 

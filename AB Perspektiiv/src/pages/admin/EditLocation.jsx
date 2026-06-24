@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import config from "../../data/config.json";
+import { writeCollection } from "../../lib/database";
 import { ToastContainer, toast } from "react-toastify";
 import { Spinner } from "react-bootstrap";
 
@@ -57,10 +58,9 @@ function EditLocation() {
       open: openTimeRef.current.value,
       url: urlRef.current.value,
     };
-    fetch(config.shops, {
-      method: "PUT",
-      body: JSON.stringify(locations),
-    }).then(() => navigate("/admin/maintain-locations"));
+    writeCollection("shops", locations).then(() =>
+      navigate("/admin/maintain-locations")
+    );
   }
 
   if (isLoading === true) {
