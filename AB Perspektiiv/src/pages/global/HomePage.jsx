@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import Footer from "../../components/home/Footer";
 import Email from "../../components/Email";
+import HomeHero from "../../components/home/HomeHero";
 
 import "../../App.css";
 
@@ -27,7 +28,7 @@ function HomePage() {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className="home-page">
       <Helmet>
         <title>
           Arhitektuuribüroo AB Perspektiiv — Arhitektuur ja sisearhitektuur
@@ -52,17 +53,12 @@ function HomePage() {
         <meta property="og:url" content="https://abperspektiiv.com/" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-      <section className="homePage-img-container">
-        <img
-          src="https://i.postimg.cc/vmnj2xX0/angeelika-Fotograaf-Lisette-Laanoja-91.jpg"
-          alt="AB Perspektiiv arhitektuuri ja sisearhitektuuri projekt"
-          className="homePageImg"
-        />
-        <h1>{t("home.hero")}</h1>
-        <br /> <br />
-        <hr />
-        <section className="services">
-          <h2>{t("home.servicesTitle")}</h2>
+
+      <HomeHero />
+
+      <div id="home-content" className="home-page__content">
+        <section className="services" aria-labelledby="home-services-title">
+          <h2 id="home-services-title">{t("home.servicesTitle")}</h2>
           <div className="teenused">
             <div className="teenuste-container">
               {SERVICE_KEYS.slice(0, 3).map((key, index) => (
@@ -90,11 +86,16 @@ function HomePage() {
             </div>
           </div>
         </section>
-        <h2>{t("home.contactTitle")}</h2> <br /> <br />
-        <Email />
-        <br /> <br />
-        <Footer />
-      </section>
+
+        <section className="home-contact" aria-labelledby="home-contact-title">
+          <h2 id="home-contact-title">{t("home.contactTitle")}</h2>
+          <Email />
+        </section>
+
+        <div className="footer">
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 }

@@ -198,136 +198,136 @@ body {
 }
 /* HOMEPAGE */
 
-.homePageImg {
-  height: 100vh;
-  object-fit: cover;
-  overflow: hidden;
-}
-
-.homePage-img-container {
-  display: block;
-  width: 100%;
-  height: 60vh;
-}
-
-.homePage-img-container h1,
-p {
-  font-family: outfit;
-}
-
-h2 {
-  font-family: outfit;
-}
-
-.sa-info {
-  width: 50%;
-  margin: 40px 20px;
+.home-page {
+  background-color: #fff;
   text-align: left;
 }
 
-.homepage-objects {
-  width: 60%;
-  margin: auto;
+.home-page__content {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  scroll-margin-top: 5.5rem;
 }
 
-.all-objects {
-  text-align: left;
-  text-decoration: none;
-  color: black;
-}
-
-.all-objects:hover {
-  text-decoration: underline;
-}
-
-.services {
-  width: 90%;
-  margin: auto;
-  text-align: left;
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.services p {
-  width: 80%;
-  font-size: 1.2rem;
-  padding-bottom: 40px;
-}
-
-.services h2 {
-  margin-bottom: 40px;
-}
-
-.teenused {
-  display: block;
-  margin: auto;
-  width: 100%;
-}
-
-.teenuste-container {
-  display: flex;
-}
-
-.teenus {
-  display: block;
-  width: 100%;
-}
-
-.teenus p {
-  font-size: 1.6em;
-}
-
-.avalehe-ikoonid {
-  height: 46px;
-}
-
-/* TEENUSED */
-.services-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin-top: 100px;
-  margin-right: 40px;
-  gap: 30px;
-}
-
-.service {
-  display: flex;
-  width: 100%;
-  gap: 20px;
-  justify-content: center;
-}
-
-.service-icon {
-  height: 30px;
-}
-
-.service p {
-  font-size: 1.3rem;
-}
-
-.services-img {
-  width: 100%;
-  height: 80vh;
-}
-
-.services-img img {
-  width: auto;
-  height: 100%;
-}
-
-.services-tekst {
-  width: 100%;
+.home-contact {
+  margin-bottom: 3rem;
   text-align: center;
 }
 
-.services-tekst h2 {
-  margin-bottom: 30px;
+.home-contact h2 {
+  margin-bottom: 1.5rem;
 }
 
-.services-tekst p {
-  text-align: justify;
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  margin-top: -5.5rem;
+  padding-top: 5.5rem;
+}
+
+.home-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.home-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.28) 40%,
+    rgba(0, 0, 0, 0.52) 100%
+  );
+}
+
+.home-hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5.5rem;
+  font-family: outfit, sans-serif;
+}
+
+.home-hero__eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.home-hero__title {
+  margin: 0 0 1.75rem;
+  max-width: 16ch;
+  font-size: clamp(2.25rem, 7.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.home-hero__cta {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.home-hero__cta:hover,
+.home-hero__cta:focus-visible {
+  background-color: #fff;
+  color: #1a1a1a;
+}
+
+.home-hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 1.5rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.home-hero__scroll:hover,
+.home-hero__scroll:focus-visible {
+  opacity: 0.75;
+}
+
+.home-hero__scroll-icon {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+
   width: 80%;
   padding-right: 30px;
 }
