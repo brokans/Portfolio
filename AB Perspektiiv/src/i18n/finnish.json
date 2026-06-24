@@ -67,78 +67,8 @@
     "contactTitle": "Ota yhteyttä!"
   },
   "servicesPage": {
-    "title": "Palvelut",
-    "eyebrow": "Arkkitehtuuritoimisto",
-    "introTitle": "Tilat, jotka tukevat arkea",
-    "intro": "Autamme luoda toimivia ja ajattomia tiloja – ensimmäisestä ideasta valmiiseen ympäristöön. Aloitamme kuuntelemalla ja löydämme ratkaisun tarpeisiin ja budjettiin.",
-    "offeringsTitle": "Palvelut",
-    "serviceGroups": {
-      "advisory": {
-        "title": "Aloitus ja konsultaatio",
-        "description": "Ensimmäinen askel idean selkeyttämisessä ja mahdollisuuksien kartoittamisessa."
-      },
-      "design": {
-        "title": "Projektointi",
-        "description": "Arkkitehtuuri- ja sisustusarkkitehtuuri kokonaisvaltaiseen tilakokemukseen."
-      },
-      "visual": {
-        "title": "Visualisointi ja analyysi",
-        "description": "Tukevat palvelut, jotka selkeyttävät ideat ennen toteutusta."
-      }
-    },
-    "processTitle": "Miten työskentelemme yhdessä",
-    "processSteps": {
-      "consult": "Konsultaatio – käymme läpi ideat, tarpeet ja budjetin.",
-      "design": "Projekti – laadimme ratkaisun, visualisoinnit ja tarvittavat dokumentit.",
-      "delivery": "Toteutus – tuemme projektia valmiin tilan saavuttamiseen."
-    },
-    "cta": {
-      "title": "Keskustellaan ideastasi",
-      "description": "Kirjoita tai soita – löydämme yhdessä seuraavan askeleen ja hinta-arvion pohjan.",
-      "quote": "Pyydä hinta-arvio",
-      "contact": "Yhteystiedot ja lomake",
-      "phone": "+372 517 0440"
-    },
-    "serviceDescriptions": {
-      "architecturalDesign": "Rakennuskonseptit, luvat, tekniset piirustukset ja projektinhallinta.",
-      "interiorDesign": "Sisustussuunnittelu, materiaalit, valaistus ja tilaratkaisut.",
-      "modeling3d": "3D-mallinnus ja visualisointi ennen rakentamista tai sisustusta.",
-      "moodboard": "Visuaaliset mood boardit tyylin ja materiaalien valinnan tueksi.",
-      "businessAnalysis": "Liideiden ja tilatarpeiden analyysi ennen projektointia.",
-      "consultation": "Alkukonsultaatio idean, tavoitteiden ja seuraavien askelten selkeyttämiseksi."
-    },
-    "serviceBullets": {
-      "architecturalDesign": [
-        "Luvat ja hyväksynnät",
-        "Uudis- ja remonttirakentaminen",
-        "Tekniset piirustukset"
-      ],
-      "interiorDesign": [
-        "Sisustuskonsepti",
-        "Materiaalit ja valaistus",
-        "Sisustussuunnitelmat"
-      ],
-      "modeling3d": [
-        "3D-mallinnus",
-        "Fotorealistiset renderit",
-        "Päätöksenteko malleista"
-      ],
-      "moodboard": [
-        "Tyylikartoitus",
-        "Materiaali- ja värivalinnat",
-        "Visuaalinen inspiraatio"
-      ],
-      "businessAnalysis": [
-        "Tilatarpeiden analyysi",
-        "Liideen ja tilan sopivus",
-        "Alkukonsepti"
-      ],
-      "consultation": [
-        "Ideoiden keskustelu",
-        "Mahdollisuuksien kartoitus",
-        "Seuraavien askelten suunnittelu"
-      ]
-    }
+    "title": "PALVELUT",
+    "intro": "Arkkitehtuuritoimistomme tarjoaa laajan palveluvalikoiman, joka auttaa sinua luoda tiloja, jotka ovat toimivia, esteettisesti miellyttäviä ja ajattomia. Työskentelemme luovuuden ja hyvän tilatunteen pohjalta – jokainen projekti, olipa kyse kodin tai työpaikan suunnittelusta, on mahdollisuus luoda ympäristö, joka vastaa tarpeisiin ja peilaa persoonallisuutta. Arkkitehtuuri ei ole vain rakennuksia – se on elinympäristö, joka vaikuttaa päivittäiseen elämään ja hyvinvointiin."
   },
   "project": {
     "projects": "Projektit",
@@ -173,6 +103,13 @@
     "send": "Lähetä"
   },
   "contactPage": {
+    "eyebrow": "Yhteystiedot",
+    "title": "Ota yhteyttä",
+    "intro": "Kuuntelemme ideoitasi ja autamme löytää sopivan ratkaisun. Kirjoita, soita tai tule studiolle – vastaamme mahdollisimman pian.",
+    "teamTitle": "Tiimi",
+    "formTitle": "Kirjoita meille",
+    "formSubtitle": "Kerro lyhyesti projektist tai ideast – ilmoita, jos haluat hinta-arvion tai konsultaation.",
+    "mapTitle": "Sijainti",
     "architect": "Arkkitehti",
     "draftsman": "Piirtäjä / 3D-mallintaja",
     "allStudios": "Kaikki studiot"

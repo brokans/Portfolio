@@ -67,78 +67,8 @@
     "contactTitle": "Get in touch!"
   },
   "servicesPage": {
-    "title": "Services",
-    "eyebrow": "Architecture studio",
-    "introTitle": "Spaces that support everyday life",
-    "intro": "We help you create functional and timeless spaces – from the first idea to the finished environment. We start by listening, then find the right solution for your needs and budget.",
-    "offeringsTitle": "Services",
-    "serviceGroups": {
-      "advisory": {
-        "title": "Getting started and consultation",
-        "description": "The first step in clarifying your idea and mapping possibilities."
-      },
-      "design": {
-        "title": "Design",
-        "description": "Architectural and interior design for a cohesive spatial experience."
-      },
-      "visual": {
-        "title": "Visualisation and analysis",
-        "description": "Supporting services that clarify ideas before implementation."
-      }
-    },
-    "processTitle": "How we work together",
-    "processSteps": {
-      "consult": "Consultation – we discuss your ideas, needs and budget.",
-      "design": "Design – we develop the solution, visualisations and required documents.",
-      "delivery": "Delivery – we support the project through to the finished space."
-    },
-    "cta": {
-      "title": "Let's talk about your idea",
-      "description": "Write or call us – together we will find the next step and the basis for a quote.",
-      "quote": "Request a quote",
-      "contact": "Contact page and form",
-      "phone": "+372 517 0440"
-    },
-    "serviceDescriptions": {
-      "architecturalDesign": "Building concepts, permits, technical drawings and project management.",
-      "interiorDesign": "Interior planning, materials, lighting and spatial solutions.",
-      "modeling3d": "3D modelling and visualisation before construction or furnishing.",
-      "moodboard": "Visual mood boards to support style and material choices.",
-      "businessAnalysis": "Analysis of business ideas and spatial needs before design.",
-      "consultation": "Initial consultation to clarify ideas, goals and next steps."
-    },
-    "serviceBullets": {
-      "architecturalDesign": [
-        "Permits and approvals",
-        "New builds and renovations",
-        "Technical drawings"
-      ],
-      "interiorDesign": [
-        "Interior concept",
-        "Materials and lighting",
-        "Furnishing plans"
-      ],
-      "modeling3d": [
-        "3D modelling",
-        "Photorealistic renders",
-        "Decision-making from models"
-      ],
-      "moodboard": [
-        "Style mapping",
-        "Material and colour selection",
-        "Visual inspiration"
-      ],
-      "businessAnalysis": [
-        "Spatial needs analysis",
-        "Business idea fit",
-        "Initial concept"
-      ],
-      "consultation": [
-        "Discussing ideas",
-        "Mapping options and constraints",
-        "Planning next steps"
-      ]
-    }
+    "title": "SERVICES",
+    "intro": "Our architecture studio offers a wide range of services to help you create spaces that are functional, aesthetically pleasing and timeless. Our work is driven by creativity and a strong sense of space – every project, whether designing a home or a workplace, is an opportunity to create an environment that meets your needs and reflects your personality. Architecture is not just about buildings – it is the living environment that shapes our daily life and wellbeing."
   },
   "project": {
     "projects": "Projects",
@@ -173,6 +103,13 @@
     "send": "Send"
   },
   "contactPage": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "intro": "We are here to listen to your ideas and help find the right solution. Write, call or visit the studio – we will reply as soon as possible.",
+    "teamTitle": "Team",
+    "formTitle": "Write to us",
+    "formSubtitle": "Briefly describe your project or idea – let us know if you would like a quote or a consultation.",
+    "mapTitle": "Location",
     "architect": "Architect",
     "draftsman": "Draftsman / 3D modeller",
     "allStudios": "All studios"

@@ -31,29 +31,23 @@ function Email() {
 
   return (
     <div className="email-form">
-      <Form ref={form} onSubmit={sendEmail}>
-        <Form.Group style={{ width: "22rem", margin: "auto" }} className="mb-3">
+      <Form ref={form} className="email-form__form" onSubmit={sendEmail}>
+        <Form.Group className="email-form__group mb-3">
           <Form.Control
             type="text"
             placeholder={t("email.name")}
             name="from_name"
           />
         </Form.Group>
-        <Form.Group
-          style={{ width: "22rem", margin: "auto" }}
-          controlId="formBasicEmail"
-        >
+        <Form.Group className="email-form__group mb-3" controlId="formBasicEmail">
           <Form.Control
-            className="mb-3"
             type="email"
             placeholder={t("email.email")}
             name="from_email"
           />
         </Form.Group>
-
         <Form.Group
-          style={{ width: "22rem", margin: "auto" }}
-          className="mb-3"
+          className="email-form__group mb-3"
           controlId="exampleForm.ControlTextarea1"
         >
           <Form.Control
@@ -63,9 +57,11 @@ function Email() {
             name="message"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          {t("email.send")}
-        </Button>
+        <div className="email-form__actions">
+          <Button variant="primary" type="submit">
+            {t("email.send")}
+          </Button>
+        </div>
       </Form>
     </div>
   );
