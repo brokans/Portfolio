@@ -2,6 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import config from "../../data/config.json";
 import { writeCollection } from "../../lib/database";
+import {
+  applyVisualCreditInput,
+  getVisualCreditType,
+  getVisualCreditValue,
+} from "../../lib/projectVisualCredit";
+import VisualCreditFields from "../../components/admin/VisualCreditFields";
 import Form from "react-bootstrap/Form";
 import { Button, Spinner } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
@@ -26,13 +32,20 @@ function EditProject() {
   const imgRefEleven = useRef();
   const asukohtRef = useRef();
   const valminudRef = useRef();
-  const projektRef = useRef();
   const pindalaRef = useRef();
   const autorRef = useRef();
-  const fotograafRef = useRef();
+  const [creditType, setCreditType] = useState("none");
+  const [creditValue, setCreditValue] = useState("");
 
   const navigate = useNavigate();
   const found = projects[index];
+
+  function handleCreditTypeChange(nextType) {
+    if (nextType !== creditType) {
+      setCreditValue("");
+    }
+    setCreditType(nextType);
+  }
 
   useEffect(() => {
     fetch(config.projects)
@@ -42,6 +55,15 @@ function EditProject() {
         setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    if (!found) {
+      return;
+    }
+
+    setCreditType(getVisualCreditType(found));
+    setCreditValue(getVisualCreditValue(found));
+  }, [found]);
 
   function edit() {
     if (nameRef.current.value === "") {
@@ -55,27 +77,29 @@ function EditProject() {
       return;
     }
 
-    projects[index] = {
-      category: categoryRef.current.value,
-      name: nameRef.current.value,
-      photoOne: imgRefOne.current.value,
-      photoTwo: imgRefTwo.current.value,
-      photoThree: imgRefThree.current.value,
-      photoFour: imgRefFour.current.value,
-      photoFive: imgRefFive.current.value,
-      photoSix: imgRefSix.current.value,
-      photoSeven: imgRefSeven.current.value,
-      photoEight: imgRefEight.current.value,
-      photoNine: imgRefNine.current.value,
-      photoTen: imgRefTen.current.value,
-      photoEleven: imgRefEleven.current.value,
-      asukoht: asukohtRef.current.value,
-      valminud: valminudRef.current.value,
-      projekt: projektRef.current.value,
-      pindala: pindalaRef.current.value,
-      autor: autorRef.current.value,
-      fotograaf: fotograafRef.current.value
-    };
+    projects[index] = applyVisualCreditInput(
+      {
+        category: categoryRef.current.value,
+        name: nameRef.current.value,
+        photoOne: imgRefOne.current.value,
+        photoTwo: imgRefTwo.current.value,
+        photoThree: imgRefThree.current.value,
+        photoFour: imgRefFour.current.value,
+        photoFive: imgRefFive.current.value,
+        photoSix: imgRefSix.current.value,
+        photoSeven: imgRefSeven.current.value,
+        photoEight: imgRefEight.current.value,
+        photoNine: imgRefNine.current.value,
+        photoTen: imgRefTen.current.value,
+        photoEleven: imgRefEleven.current.value,
+        asukoht: asukohtRef.current.value,
+        valminud: valminudRef.current.value,
+        pindala: pindalaRef.current.value,
+        autor: autorRef.current.value,
+      },
+      creditType,
+      creditValue
+    );
     writeCollection("projects", projects).then(() =>
       navigate("/admin/maintain-projects")
     );
@@ -273,18 +297,6 @@ function EditProject() {
           controlId="formBasicEmail"
         >
           <Form.Control
-            ref={projektRef}
-            // defaultValue={found.projekt}
-            type="text"
-            placeholder="Projekt"
-          />
-        </Form.Group>
-        <Form.Group
-          style={{ width: "18rem", margin: "auto"  }}
-          className="mb-3"
-          controlId="formBasicEmail"
-        >
-          <Form.Control
             ref={pindalaRef}
             defaultValue={found.pindala}
             type="text"
@@ -303,18 +315,15 @@ function EditProject() {
             placeholder="Autor"
           />
         </Form.Group>
-        <Form.Group
-          style={{ width: "18rem", margin: "auto"  }}
-          className="mb-3"
-          controlId="formBasicEmail"
-        >
-          <Form.Control
-            ref={fotograafRef}
-            defaultValue={found.fotograaf}
-            type="text"
-            placeholder="Fotograaf"
+        <div style={{ width: "18rem", margin: "auto" }}>
+          <VisualCreditFields
+            name="editProjectCreditType"
+            type={creditType}
+            value={creditValue}
+            onTypeChange={handleCreditTypeChange}
+            onValueChange={setCreditValue}
           />
-        </Form.Group>
+        </div>
         <Button onClick={edit} variant="primary">
           Muuda
         </Button>

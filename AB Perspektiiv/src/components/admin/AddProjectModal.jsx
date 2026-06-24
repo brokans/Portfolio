@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import config from "../../data/config.json";
 import { writeCollection } from "../../lib/database";
+import { applyVisualCreditInput } from "../../lib/projectVisualCredit";
+import VisualCreditFields from "./VisualCreditFields";
 import { Spinner } from "react-bootstrap";
 
 function EditModal(props) {
@@ -30,8 +32,16 @@ function EditModal(props) {
   const valminudRef = useRef();
   const pindalaRef = useRef();
   const autorRef = useRef();
-  const fotograafRef = useRef();
+  const [creditType, setCreditType] = useState("none");
+  const [creditValue, setCreditValue] = useState("");
   const [isLoading, setLoading] = useState(true);
+
+  function handleCreditTypeChange(nextType) {
+    if (nextType !== creditType) {
+      setCreditValue("");
+    }
+    setCreditType(nextType);
+  }
 
   useEffect(() => {
     fetch(config.projects)
@@ -43,26 +53,31 @@ function EditModal(props) {
   }, []);
 
   function addProject() {
-    projects.push({
-      name: nameRef.current.value,
-      category: categoryRef.current.value,
-      photoOne: imgRefOne.current.value,
-      photoTwo: imgRefTwo.current.value,
-      photoThree: imgRefThree.current.value,
-      photoFour: imgRefFour.current.value,
-      photoFive: imgRefFive.current.value,
-      photoSix: imgRefSix.current.value,
-      photoSeven: imgRefSeven.current.value,
-      photoEight: imgRefEight.current.value,
-      photoNine: imgRefNine.current.value,
-      photoTen: imgRefTen.current.value,
-      photoEleven: imgRefEleven.current.value,
-      asukoht: asukohtRef.current.value,
-      valminud: valminudRef.current.value,
-      pindala: pindalaRef.current.value,
-      autor: autorRef.current.value,
-      fotograaf: fotograafRef.current.value
-    });
+    projects.push(
+      applyVisualCreditInput(
+        {
+          name: nameRef.current.value,
+          category: categoryRef.current.value,
+          photoOne: imgRefOne.current.value,
+          photoTwo: imgRefTwo.current.value,
+          photoThree: imgRefThree.current.value,
+          photoFour: imgRefFour.current.value,
+          photoFive: imgRefFive.current.value,
+          photoSix: imgRefSix.current.value,
+          photoSeven: imgRefSeven.current.value,
+          photoEight: imgRefEight.current.value,
+          photoNine: imgRefNine.current.value,
+          photoTen: imgRefTen.current.value,
+          photoEleven: imgRefEleven.current.value,
+          asukoht: asukohtRef.current.value,
+          valminud: valminudRef.current.value,
+          pindala: pindalaRef.current.value,
+          autor: autorRef.current.value,
+        },
+        creditType,
+        creditValue
+      )
+    );
     setProjects(projects.slice());
 
     writeCollection("projects", projects);
@@ -191,13 +206,13 @@ function EditModal(props) {
                 placeholder="Autor"
               />
               <br />
-              <Form.Control
-                ref={fotograafRef}
-                type="textarea"
-                autoFocus
-                placeholder="Fotograaf"
+              <VisualCreditFields
+                name="addProjectCreditType"
+                type={creditType}
+                value={creditValue}
+                onTypeChange={handleCreditTypeChange}
+                onValueChange={setCreditValue}
               />
-              <br />
             </Form.Group>
           </Form>
         </Modal.Body>
