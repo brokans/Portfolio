@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../components/home/Footer";
+import ArchitectureBanner from "../../components/home/ArchitectureBanner";
 import config from "../../data/config.json";
 
 function Sisearhitektuur() {
@@ -17,7 +18,7 @@ function Sisearhitektuur() {
   }, []);
 
   return (
-    <div>
+    <div className="architecture-page">
       <Helmet>
         <title>Arhitektuuribüroo — Sisearhitektuur | AB Perspektiiv</title>
         <meta
@@ -29,17 +30,10 @@ function Sisearhitektuur() {
           href="https://abperspektiiv.com/sisearhitektuur"
         />
       </Helmet>
-      <div className="homePageImgContainer">
-        <Carousel fade>
-          {found.map((project) => (
-            <Carousel.Item
-              interval={project.photoOne ? 3000 : project.photoOne}
-            >
-              {project.photoOne && <img src={project.photoOne} alt="" />}
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      </div>
+      <ArchitectureBanner
+        category="Sisearhitektuur"
+        imageAlt="Sisearhitektuuri projekt"
+      />
       {/* <article className="sa-info">
         <h1>Valga Kodu</h1>
         <p>
