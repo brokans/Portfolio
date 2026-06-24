@@ -7,6 +7,8 @@ import { Contact } from "./pages/global/Contact";
 import HomePage from "./pages/global/HomePage";
 import Navbars from "./components/Navbars.jsx";
 import AdminHome from "./pages/admin/AdminHome";
+import AdminLogin from "./pages/admin/AdminLogin";
+import ProtectedRoute from "./components/admin/ProtectedRoute";
 import Arhitektuur from "./pages/global/Arcitecture";
 import Sisearhitektuur from "./pages/global/InteriorArchitecture";
 import MaintainLocations from "./pages/admin/MaintainLocations.";
@@ -30,21 +32,23 @@ function App() {
       <Navbars />
       <Link to="/"></Link>
       <Link to="/contacts"></Link>
-      <Link to="/admin"></Link>
       <Link to="/portfolio"></Link>
       <Link to="/services"></Link>
       <Link to="/arhitektuur"></Link>
       <Link to="/sisearhitektuur"></Link>
-      <Link to="/maintain-locations"></Link>
-      <Link to="/maintain-blog"></Link>
-      <Link to="/maintain-courses"></Link>
-      <Link to="/maintain-projekts"></Link>
-      <Link to="/maintain-products"></Link>
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contacts" element={<Contact />} />
-        <Route path="/admin" element={<AdminHome />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminHome />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/portfolio" element={< Portfolio />} />
         <Route path="/services" element={< Services />} />
         <Route path="/arhitektuur" element={<Arhitektuur />} />
@@ -56,19 +60,59 @@ function App() {
         <Route path="/project-page/:name" element={<ProjectPage />} />
         <Route
           path="/admin/maintain-locations"
-          element={<MaintainLocations />}
+          element={
+            <ProtectedRoute>
+              <MaintainLocations />
+            </ProtectedRoute>
+          }
         />
-        <Route path="/admin/maintain-blog" element={<MaintainBlog />} />
-        <Route path="/admin/maintain-courses" element={<MaintainCourses />} />
-        <Route path="/admin/maintain-projects" element={<MaintainProjects />} />
-        <Route path="/admin/maintain-products" element={<MaintainProducts />} />
+        <Route
+          path="/admin/maintain-blog"
+          element={
+            <ProtectedRoute>
+              <MaintainBlog />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/maintain-courses"
+          element={
+            <ProtectedRoute>
+              <MaintainCourses />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/maintain-projects"
+          element={
+            <ProtectedRoute>
+              <MaintainProjects />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/maintain-products"
+          element={
+            <ProtectedRoute>
+              <MaintainProducts />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/admin/maintain-locations/edit-location/:index"
-          element={<EditLocations />}
+          element={
+            <ProtectedRoute>
+              <EditLocations />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/admin/maintain-projects/edit-project/:index"
-          element={<EditProject />}
+          element={
+            <ProtectedRoute>
+              <EditProject />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </div>
