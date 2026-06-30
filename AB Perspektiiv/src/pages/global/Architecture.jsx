@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import Footer from "../../components/home/Footer";
 import ArchitectureBanner from "../../components/home/ArchitectureBanner";
 import ArchitectureProjectGrid from "../../components/home/ArchitectureProjectGrid";
-import config from "../../data/config.json";
+import { readCollection } from "../../lib/database";
 
-function Arhitektuur() {
+function Architecture() {
   const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
   const architectureProjects = projects.filter(
@@ -14,9 +14,9 @@ function Arhitektuur() {
   );
 
   useEffect(() => {
-    fetch(config.projects)
-      .then((res) => res.json())
-      .then((json) => setProjects(json || []));
+    readCollection("projects")
+      .then(setProjects)
+      .catch(console.error);
   }, []);
 
   return (
@@ -43,4 +43,4 @@ function Arhitektuur() {
   );
 }
 
-export default Arhitektuur;
+export default Architecture;

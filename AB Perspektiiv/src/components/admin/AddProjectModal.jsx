@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import config from "../../data/config.json";
-import { writeCollection } from "../../lib/database";
+import { readCollection, writeCollection } from "../../lib/database";
 import { applyVisualCreditInput } from "../../lib/projectVisualCredit";
 import VisualCreditFields from "./VisualCreditFields";
 import { Spinner } from "react-bootstrap";
 
-function EditModal(props) {
+function AddProjectModal() {
   const [projects, setProjects] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -44,12 +43,12 @@ function EditModal(props) {
   }
 
   useEffect(() => {
-    fetch(config.projects)
-      .then((res) => res.json())
+    readCollection("projects")
       .then((json) => {
-        setProjects(json || []);
+        setProjects(json);
         setLoading(false);
-      });
+      })
+      .catch(console.error);
   }, []);
 
   function addProject() {
@@ -236,4 +235,4 @@ function EditModal(props) {
   );
 }
 
-export default EditModal;
+export default AddProjectModal;

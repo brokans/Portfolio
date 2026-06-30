@@ -1,10 +1,8 @@
-import React from "react";
+import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
-import MaintainLocations from "../../pages/admin/MaintainLocations.";
-import MaintainCourses from "../../pages/admin/MaintainCourses";
+import MaintainLocations from "../../pages/admin/MaintainLocations";
 import MaintainProjects from "../../pages/admin/MaintainProjects";
 import { useAuth } from "../../store/AuthContext";
 
@@ -26,19 +24,16 @@ function AdminTabs() {
         </Button>
       </div>
       <Tabs
-        defaultActiveKey="home"
+        defaultActiveKey="projects"
         transition={false}
-        id="noanim-tab-example"
+        id="admin-tabs"
         className="mb-3 justify-content-center"
       >
-        <Tab eventKey="location" title="Halda Asukohtasid">
-          <MaintainLocations />
-        </Tab>
-        <Tab eventKey="courses" title="Halda Kursuseid">
-          <MaintainCourses />
-        </Tab>
-        <Tab eventKey="projects" title="Halda Projekte">
+        <Tab eventKey="projects" title="Halda projekte">
           <MaintainProjects />
+        </Tab>
+        <Tab eventKey="location" title="Halda asukohti">
+          <MaintainLocations />
         </Tab>
       </Tabs>
     </div>
