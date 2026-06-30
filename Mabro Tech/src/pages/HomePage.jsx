@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Modal from "react-bootstrap/Modal";
 import { Contact } from "../components/home/Contact";
+import HeroBanner from "../components/home/HeroBanner";
 import styles from "../css/HomePage.module.css";
 import { useTranslation } from "react-i18next";
 
@@ -81,16 +82,7 @@ function HomePage() {
           content="Mabro Tech – siseviimistlus ja maalritööd"
         />
       </Helmet>
-      <div className={styles.profileDiv}>
-        <div className={styles.profileImgContainer}>
-          <img
-            alt="Elutuba – siseviimistluse näidisprojekt"
-            className={styles.profileImage}
-            src="./Elutuba.JPG"
-            loading="lazy"
-          />
-        </div>
-      </div>
+      <HeroBanner />
       <div className={styles.projects}>
         <h2 className={styles.projectHeader} id="projects">
           {t("projects_title")}
@@ -110,11 +102,8 @@ function HomePage() {
       </div>
       <br />
       <br /> <br />
-      <div className={styles.contactContainer}>
-        <div className={styles.contactMe}>
-          <h2>{t("homepage_contact_header")}</h2> <br />
-          <Contact />
-        </div>
+      <div className={styles.contactContainer} id="contact-form">
+        <Contact title={t("homepage_contact_header")} variant="card" />
       </div>
       <p className={styles.contactBelowText}>
         {t("homepage_cta")} <br />

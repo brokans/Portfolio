@@ -1,0 +1,235 @@
+.hero {
+  position: relative;
+  min-height: clamp(520px, 88vh, 900px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #fff;
+  text-align: left;
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transform: scale(1.02);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(8, 8, 10, 0.82) 0%,
+      rgba(8, 8, 10, 0.55) 45%,
+      rgba(8, 8, 10, 0.25) 100%
+    ),
+    linear-gradient(to top, rgba(8, 8, 10, 0.75) 0%, transparent 55%);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 92%);
+  margin: 0 auto;
+  padding: clamp(5rem, 12vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+}
+
+.heroContent {
+  max-width: 680px;
+  animation: heroFadeUp 0.8s ease-out both;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff !important;
+}
+
+.subtitle {
+  margin: 0 0 1.75rem;
+  max-width: 540px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.highlights li {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.primaryBtn {
+  background: #fff;
+  color: #111 !important;
+  border: 1px solid #fff;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  background: #f2f2f2;
+  color: #111 !important;
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff !important;
+}
+
+.scrollHint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 1;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75));
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.75);
+    transform-origin: top;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: clamp(480px, 78vh, 680px);
+    align-items: center;
+  }
+
+  .heroInner {
+    padding: 6.5rem 0 4.5rem;
+  }
+
+  .heroContent {
+    max-width: none;
+  }
+
+  .highlights li {
+    font-size: 0.78rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroContent,
+  .scrollLine {
+    animation: none;
+  }
+
+  .primaryBtn:hover,
+  .secondaryBtn:hover {
+    transform: none;
+  }
+}
