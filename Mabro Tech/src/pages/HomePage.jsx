@@ -31,7 +31,7 @@ const images = [
 ];
 
 function HomePage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 

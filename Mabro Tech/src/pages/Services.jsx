@@ -36,7 +36,7 @@ function Services() {
         <p>{t("services_smallworks_text")}</p>
         <p>{t("services_contact_text")}</p>
         <hr />
-        <h2>Hinnakiri</h2>
+        <h2>{t("services_price_title")}</h2>
         <div
           style={{ overflowX: "auto", marginTop: "16px", marginBottom: "24px" }}
         >
@@ -49,9 +49,9 @@ function Services() {
           >
             <thead style={{ backgroundColor: "#f2f2f2" }}>
               <tr>
-                <th>Teenus</th>
-                <th>Ühik</th>
-                <th>Hind alates (ilma KM)</th>
+                <th>{t("services_table.headers_service")}</th>
+                <th>{t("services_table.headers_unit")}</th>
+                <th>{t("services_table.headers_price_from")}</th>
               </tr>
             </thead>
             <tbody>
@@ -183,12 +183,7 @@ function Services() {
           </table>
         </div>
         <hr />
-        <p>
-          Mabrotech OÜ hinnakirjas on hinnad käibemaksuta, ei sisalda materjale,
-          tõstevahendeid, abivahendeid ja transporti. Hinnakiri pole lõplik ning
-          täpsem hind sõltub tööde keerukusest ja mahust. Hinnapakkumise
-          saamiseks võtke meiega julgelt ühendust.
-        </p>
+        <p>{t("services_price_disclaimer")}</p>
 
         <div className={styles.buttonContainer}>
           <Link to="/contacts#contact-form" style={{ textDecoration: "none" }}>
@@ -197,7 +192,7 @@ function Services() {
               type="button"
               className={Styles.submitButton}
             >
-              Küsi pakkumist
+              {t("services_send_request")}
             </Button>
           </Link>
         </div>
