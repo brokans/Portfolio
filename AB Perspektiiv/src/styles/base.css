@@ -1,0 +1,37 @@
+/* Base layout, typography & utilities */
+.App {
+  text-align: center;
+  background-color: #fff;
+}
+
+body {
+  background-color: #fff;
+  font-family: outfit, sans-serif;
+}
+
+h1,
+h2,
+p {
+  font-family: outfit, sans-serif;
+}
+
+.architecture-page {
+  background-color: #fff;
+}
+
+.logo {
+  height: 50px;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+.admin-tabs {
+  padding-top: 100px;
+}
+
+/* PROJEKT */
+.project-form {
+  padding-top: 80px;
+}

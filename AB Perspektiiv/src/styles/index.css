@@ -1,0 +1,11 @@
+/* Global styles — imported from App.jsx */
+@import "./base.css";
+@import "./navbar.css";
+@import "./footer.css";
+@import "./components/email-form.css";
+@import "./pages/home.css";
+@import "./pages/architecture.css";
+@import "./pages/interior.css";
+@import "./pages/services.css";
+@import "./pages/contact.css";
+@import "./admin/projects.css";

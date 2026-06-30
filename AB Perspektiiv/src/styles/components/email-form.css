@@ -1,0 +1,85 @@
+/* Email / contact inquiry form */
+/* COMPONENTS */
+
+.email-form {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.email-form__form {
+  width: 100%;
+  max-width: 22rem;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.email-form__group {
+  width: 100%;
+}
+
+.email-form__actions {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.contact-inquiry .email-form {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contact-inquiry .email-form__form {
+  margin-inline: 0;
+  max-width: none;
+}
+
+.email-form--contact .email-form__card-title {
+  margin: 0 0 1.25rem;
+  font-family: outfit, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.email-form--contact .email-form__label {
+  margin-bottom: 0.4rem;
+  font-family: outfit, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #444;
+}
+
+.email-form--contact .form-control {
+  border: 1px solid #ddd;
+  border-radius: 0;
+  padding: 0.65rem 0.75rem;
+  font-family: outfit, sans-serif;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  background-color: #fff;
+}
+
+.email-form--contact .form-control:focus {
+  border-color: #8b7355;
+  box-shadow: 0 0 0 0.15rem rgba(139, 115, 85, 0.15);
+}
+
+.email-form--contact .email-form__submit {
+  min-width: 9rem;
+  padding: 0.55rem 1.25rem;
+  font-family: outfit, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.email-form--contact .email-form__submit:hover,
+.email-form--contact .email-form__submit:focus-visible {
+  background-color: #333;
+  border-color: #333;
+}
+

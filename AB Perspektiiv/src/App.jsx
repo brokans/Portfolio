@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/index.css";
 
 import { Route, Routes } from "react-router-dom";
 import { Contact } from "./pages/global/Contact";

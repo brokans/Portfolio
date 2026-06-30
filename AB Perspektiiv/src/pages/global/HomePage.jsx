@@ -4,8 +4,6 @@ import Footer from "../../components/home/Footer";
 import Email from "../../components/Email";
 import HomeHero from "../../components/home/HomeHero";
 
-import "../../App.css";
-
 const SERVICE_KEYS = [
   "architecturalDesign",
   "interiorDesign",
