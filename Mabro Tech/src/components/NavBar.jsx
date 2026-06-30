@@ -1,4 +1,4 @@
-import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -8,6 +8,7 @@ import "../css/NavBarCustom.css";
 
 function NavBar() {
   const { t, i18n } = useTranslation();
+
   return (
     <Navbar
       className="navbar custom-navbar"
@@ -18,7 +19,8 @@ function NavBar() {
     >
       <Container fluid className="navbar-inner-container">
         <Navbar.Brand
-          href="/"
+          as={Link}
+          to="/"
           className="d-flex align-items-center"
           aria-label="Mabro Tech avaleht"
         >
@@ -28,13 +30,19 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
             <Nav.Item>
-              <Nav.Link href="/">{t("nav_home")}</Nav.Link>
+              <Nav.Link as={NavLink} to="/" end>
+                {t("nav_home")}
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/services">{t("nav_services")}</Nav.Link>
+              <Nav.Link as={NavLink} to="/services">
+                {t("nav_services")}
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/contacts">{t("nav_contacts")}</Nav.Link>
+              <Nav.Link as={NavLink} to="/contacts">
+                {t("nav_contacts")}
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item
               style={{
@@ -64,8 +72,8 @@ function NavBar() {
                       i18n.language === "et"
                         ? "/flags/et.png"
                         : i18n.language === "en"
-                        ? "/flags/en.png"
-                        : "/flags/ru.png"
+                          ? "/flags/en.png"
+                          : "/flags/ru.png"
                     }
                     alt={i18n.language}
                     style={{

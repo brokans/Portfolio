@@ -18,6 +18,8 @@
   "services_smallworks_text": "We also offer help with small jobs and unfinished projects. Whether it's repairs, finishing or other help - our team is ready to help.",
   "services_contact_text": "If you need a more detailed price offer or want to ask about a specific job, feel free to contact us.",
   "services_send_request": "Send request",
+  "services_price_title": "Price list",
+  "services_price_disclaimer": "Prices in the Mabro Tech price list are excluding VAT and do not include materials, lifting equipment, tools, or transport. The price list is not final; the exact price depends on the complexity and scope of the work. Contact us for a detailed quote.",
   "services_table": {
     "headers_service": "Service",
     "headers_unit": "Unit",
@@ -62,6 +64,8 @@
   "nav_home": "Home",
   "nav_services": "Services",
   "nav_contacts": "Contacts",
+  "not_found_title": "Page not found",
+  "not_found_link": "Back to home",
   "homepage_contact_header": "Tell us about your project!",
   "homepage_cta": "Would you like a website like this for your business?",
   "homepage_contact": "Contact us!",
@@ -69,5 +73,6 @@
   "contact_email_placeholder": "e-Mail:",
   "contact_message_placeholder": "Message:",
   "contact_send_button": "Send",
-  "contact_sent_message": "Message sent!"
+  "contact_sent_message": "Message sent!",
+  "contact_error_message": "Failed to send the message. Please try again or email us directly."
 }

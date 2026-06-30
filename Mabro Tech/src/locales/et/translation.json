@@ -18,6 +18,8 @@
   "services_smallworks_text": "Pakume abi ka väikeste tööde ja lõpetamata projektide puhul. Olgu need remonttööd, viimistlus või muu abi - meie meeskond on valmis aitama.",
   "services_contact_text": "Kui vajad täpsemat hinnapakkumist või soovid küsida konkreetse töö kohta, võta julgelt ühendust.",
   "services_send_request": "Saada päring",
+  "services_price_title": "Hinnakiri",
+  "services_price_disclaimer": "Mabrotech OÜ hinnakirjas on hinnad käibemaksuta, ei sisalda materjale, tõstevahendeid, abivahendeid ja transporti. Hinnakiri pole lõplik ning täpsem hind sõltub tööde keerukusest ja mahust. Hinnapakkumise saamiseks võtke meiega julgelt ühendust.",
   "services_table": {
     "headers_service": "Teenus",
     "headers_unit": "Ühik",
@@ -62,6 +64,8 @@
   "nav_home": "Avaleht",
   "nav_services": "Teenused",
   "nav_contacts": "Kontaktid",
+  "not_found_title": "Lehte ei leitud",
+  "not_found_link": "Tagasi avalehele",
   "homepage_contact_header": "Kirjuta oma plaanist!",
   "homepage_cta": "Soovid ka sellist kodulehte oma ettevõttele?",
   "homepage_contact": "Võta ühendust!",
@@ -69,5 +73,6 @@
   "contact_email_placeholder": "e-Mail:",
   "contact_message_placeholder": "Sõnum:",
   "contact_send_button": "Saada",
-  "contact_sent_message": "Sõnum on saadetud!"
+  "contact_sent_message": "Sõnum on saadetud!",
+  "contact_error_message": "Sõnumi saatmine ebaõnnestus. Proovi uuesti või kirjuta otse e-postile."
 }
