@@ -239,22 +239,6 @@
 }
 
 @media (max-width: 820px) {
-  .services-offerings__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .services-cta__inner {
-    text-align: center;
-  }
-
-  .services-cta__actions {
-    justify-content: center;
-  }
-
-  .services-cta__description {
-    max-width: none;
-  }
-
   .contact-team__grid {
     grid-template-columns: 1fr;
   }

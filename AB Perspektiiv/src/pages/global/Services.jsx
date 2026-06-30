@@ -91,20 +91,18 @@ function Services() {
       <section className="services-intro">
         <div className="services-intro__inner">
           <p className="services-intro__eyebrow">{t("servicesPage.eyebrow")}</p>
-          <h1 className="services-intro__title">{t("servicesPage.introTitle")}</h1>
+          <h1 className="services-intro__title">
+            {t("servicesPage.introTitle")}
+          </h1>
           <p className="services-intro__text">{t("servicesPage.intro")}</p>
         </div>
       </section>
 
       <section
         className="services-offerings"
-        aria-labelledby="services-offerings-title"
+        aria-label={t("servicesPage.offeringsTitle")}
       >
         <div className="services-offerings__inner">
-          <h2 id="services-offerings-title" className="services-section__title">
-            {t("servicesPage.offeringsTitle")}
-          </h2>
-
           {SERVICE_GROUPS.map((group) => (
             <div className="services-group" key={group.key}>
               <div className="services-group__header">

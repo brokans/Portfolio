@@ -78,8 +78,78 @@
     "heroImageAlt": "Arhitektuuriprojekt"
   },
   "servicesPage": {
-    "title": "TEENUSED",
-    "intro": "Meie arhitektuuribüroo pakub laia teenuste valikut, et aidata teil luua ruume, mis on funktsionaalsed, esteetiliselt meeldivad ja ajatud. Meie töö lähtub loovusest ja heast ruumitundest – iga projekt, olgu tegemist kodu või töökoha kujundamisega, on meile võimalus luua keskkond, mis vastab teie vajadustele ja peegeldab teie isikupära. Arhitektuur ei seisne vaid hoonetes – see on elukeskkond, mis mõjutab meie igapäevaelu ja heaolu."
+    "title": "Teenused",
+    "eyebrow": "Arhitektuuribüroo",
+    "introTitle": "Ruumid, mis toetavad teie igapäevaelu",
+    "intro": "Aitame teil luua funktsionaalseid ja esteetiliselt ajatuid ruume – alates esimesest ideest kuni valmis keskkonnani. Alustame kuulamisega, seejärel leiame sobiva lahenduse teie vajaduste ja eelarve järgi.",
+    "offeringsTitle": "Teenused",
+    "serviceGroups": {
+      "advisory": {
+        "title": "Alustamine ja konsultatsioon",
+        "description": "Esimene samm idee selgitamisel ja võimaluste kaardistamisel."
+      },
+      "design": {
+        "title": "Projekteerimine",
+        "description": "Arhitektuurne ja sisearhitektuurne lahendus tervikliku ruumikogemuse jaoks."
+      },
+      "visual": {
+        "title": "Visualiseerimine ja analüüs",
+        "description": "Toetavad teenused, mis aitavad ideed enne teostust selgeks teha."
+      }
+    },
+    "processTitle": "Kuidas koos töötame",
+    "processSteps": {
+      "consult": "Konsultatsioon – arutame teie ideed, vajadused ja eelarve piirid.",
+      "design": "Projekt – koostame lahenduse, visualiseeringud ja vajalikud dokumendid.",
+      "delivery": "Teostus – toetame projekti elluviimist kuni valmis ruumini."
+    },
+    "cta": {
+      "title": "Räägime teie ideest",
+      "description": "Kirjutage meile või helistage – leiame koos järgmise sammu ja koostame hinnapakkumise aluse.",
+      "quote": "Küsi hinnapakkumist",
+      "contact": "Kontaktid ja vorm",
+      "phone": "+372 517 0440"
+    },
+    "serviceDescriptions": {
+      "architecturalDesign": "Hoone kontseptsioon, ehitusload, tehnilised joonised ja projektijuhtimine.",
+      "interiorDesign": "Interjööri planeerimine, materjalid, valgustus ja ruumilahendused.",
+      "modeling3d": "3D-mudeldamine ja visualiseerimine enne ehitust või sisustust.",
+      "moodboard": "Visuaalsed mood boardid stiili ja materjalide valiku toetamiseks.",
+      "businessAnalysis": "Äriidee ja ruumivajaduste analüüs enne projekteerimist.",
+      "consultation": "Esmane nõustamine idee, eesmärkide ja järgmiste sammude selgitamiseks."
+    },
+    "serviceBullets": {
+      "architecturalDesign": [
+        "Ehitusload ja kooskõlastused",
+        "Uusarendus ja renoveerimine",
+        "Tehnilised joonised"
+      ],
+      "interiorDesign": [
+        "Interjööri kontseptsioon",
+        "Materjalid ja valgustus",
+        "Sisustusplaanid"
+      ],
+      "modeling3d": [
+        "3D-mudeldamine",
+        "Fotorealistlikud renderdused",
+        "Mudelite põhjal otsuste tegemine"
+      ],
+      "moodboard": [
+        "Stiili kaardistamine",
+        "Materjalide ja värvide valik",
+        "Visuaalne inspiratsioon"
+      ],
+      "businessAnalysis": [
+        "Ruumivajaduste analüüs",
+        "Äriidee ja ruumi sobivus",
+        "Esmane kontseptsioon"
+      ],
+      "consultation": [
+        "Ideede arutamine",
+        "Võimaluste ja piirangute kaardistamine",
+        "Järgmiste sammude plaan"
+      ]
+    }
   },
   "project": {
     "projects": "Projektid",

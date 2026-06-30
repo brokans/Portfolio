@@ -72,8 +72,78 @@
     "heroImageAlt": "Arhitektūras projekts"
   },
   "servicesPage": {
-    "title": "PAKALPOJUMI",
-    "intro": "Mūsu arhitektūras birojs piedāvā plašu pakalpojumu klāstu, lai palīdzētu jums radīt telpas, kas ir funkcionālas, estētiski patīkamas un laikmetīgas. Mūsu darbs balstās uz radošumu un labu telpas izpratni – katrs projekts, neatkarīgi no tā, vai tiek projektēta māja vai darba vieta, ir iespēja radīt vidi, kas atbilst jūsu vajadzībām un atspoguļo jūsu personību. Arhitektūra nav tikai ēkas – tā ir dzīves vide, kas ietekmē ikdienas dzīvi un labsajūtu."
+    "title": "Pakalpojumi",
+    "eyebrow": "Arhitektūras birojs",
+    "introTitle": "Telpas, kas atbalsta ikdienas dzīvi",
+    "intro": "Palīdzam radīt funkcionālas un laikmetīgas telpas – no pirmās idejas līdz gatavai videi. Sākam ar klausīšanu un atrodam risinājumu atbilstoši jūsu vajadzībām un budžetam.",
+    "offeringsTitle": "Pakalpojumi",
+    "serviceGroups": {
+      "advisory": {
+        "title": "Sākums un konsultācija",
+        "description": "Pirmais solis idejas precizēšanā un iespēju noteikšanā."
+      },
+      "design": {
+        "title": "Projektēšana",
+        "description": "Arhitektūra un interjera projektēšana vienotai telpas pieredzei."
+      },
+      "visual": {
+        "title": "Vizualizācija un analīze",
+        "description": "Atbalsta pakalpojumi, kas padara idejas skaidras pirms īstenošanas."
+      }
+    },
+    "processTitle": "Kā mēs strādājam kopā",
+    "processSteps": {
+      "consult": "Konsultācija – apspriežam idejas, vajadzības un budžetu.",
+      "design": "Projekts – izstrādājam risinājumu, vizualizācijas un nepieciešamos dokumentus.",
+      "delivery": "Izvēle – atbalstām projektu līdz gatavai telpai."
+    },
+    "cta": {
+      "title": "Apspriedīsim jūsu ideju",
+      "description": "Rakstiet vai zvaniet – kopā atradīsim nākamo soli un cenas piedāvājuma pamatu.",
+      "quote": "Pieprasīt cenas piedāvājumu",
+      "contact": "Kontakti un forma",
+      "phone": "+372 517 0440"
+    },
+    "serviceDescriptions": {
+      "architecturalDesign": "Ēku koncepcijas, atļaujas, tehniskie zīmējumi un projektu vadība.",
+      "interiorDesign": "Interjera plānošana, materiāli, apgaismojums un telpu risinājumi.",
+      "modeling3d": "3D modelēšana un vizualizācija pirms būvniecības vai iekārtošanas.",
+      "moodboard": "Vizuālie mood board stila un materiālu izvēlei.",
+      "businessAnalysis": "Biznesa ideju un telpu vajadzību analīze pirms projektēšanas.",
+      "consultation": "Sākuma konsultācija ideju, mērķu un nākamo soļu precizēšanai."
+    },
+    "serviceBullets": {
+      "architecturalDesign": [
+        "Atļaujas un saskaņošanas",
+        "Jaunbūve un renovācija",
+        "Tehniskie zīmējumi"
+      ],
+      "interiorDesign": [
+        "Interjera koncepcija",
+        "Materiāli un apgaismojums",
+        "Iekārtošanas plāni"
+      ],
+      "modeling3d": [
+        "3D modelēšana",
+        "Fotorealistiski renderi",
+        "Lēmumi no modeļiem"
+      ],
+      "moodboard": [
+        "Stila kartēšana",
+        "Materiālu un krāsu izvēle",
+        "Vizuāla inspirācija"
+      ],
+      "businessAnalysis": [
+        "Telpu vajadzību analīze",
+        "Idejas un telpas atbilstība",
+        "Sākuma koncepcija"
+      ],
+      "consultation": [
+        "Ideju apspriešana",
+        "Iespēju kartēšana",
+        "Nākamo soļu plānošana"
+      ]
+    }
   },
   "project": {
     "projects": "Projekti",
