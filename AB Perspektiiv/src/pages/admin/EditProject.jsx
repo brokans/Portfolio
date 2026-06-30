@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import config from "../../data/config.json";
-import { writeCollection } from "../../lib/database";
+import { readCollection, writeCollection } from "../../lib/database";
 import {
   applyVisualCreditInput,
   getVisualCreditType,
@@ -48,12 +47,12 @@ function EditProject() {
   }
 
   useEffect(() => {
-    fetch(config.projects)
-      .then((res) => res.json())
+    readCollection("projects")
       .then((json) => {
-        setProjects(json || []);
+        setProjects(json);
         setLoading(false);
-      });
+      })
+      .catch(console.error);
   }, []);
 
   useEffect(() => {

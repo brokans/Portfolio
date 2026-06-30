@@ -1,21 +1,18 @@
-import React from "react";
+import PortfolioTabs from "../../components/Tabs";
 import InteriorCards from "../../components/home/InteriorCards";
 import ArchitectureCards from "../../components/home/ArchitectureCards";
-import  Tabs from "../../components/Tabs";
 import Footer from "../../components/home/Footer";
-
-
 
 function Portfolio() {
   return (
-    <div>
-      <Tabs />
-      <br />
+    <div className="portfolio-page">
+      <PortfolioTabs />
       <ArchitectureCards />
       <InteriorCards />
       <div className="footer">
         <Footer />
-      </div>    </div>
+      </div>
+    </div>
   );
 }
 

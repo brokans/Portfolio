@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import config from "../../data/config.json";
-import { writeCollection } from "../../lib/database";
+import { readCollection, writeCollection } from "../../lib/database";
 import { ToastContainer, toast } from "react-toastify";
 import { Spinner } from "react-bootstrap";
 
@@ -21,12 +20,12 @@ function EditLocation() {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(config.shops)
-      .then((res) => res.json())
+    readCollection("shops")
       .then((json) => {
-        setLocations(json || [])
+        setLocations(json);
         setLoading(false);
-      });
+      })
+      .catch(console.error);
   }, []);
 
   function edit() {

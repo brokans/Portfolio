@@ -3,8 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import ChangeView from "./ChangeView";
-import config from "../data/config.json";
 import { useEffect, useState } from "react";
+import { readCollection } from "../lib/database";
 import {
   getShopDirectionsUrl,
   getShopPosition,
@@ -31,9 +31,9 @@ function Map({ mapCoordinaates, shops: shopsProp }) {
       return;
     }
 
-    fetch(config.shops)
-      .then((res) => res.json())
-      .then((json) => setShops((json || []).map(normalizeShop)));
+    readCollection("shops")
+      .then((json) => setShops(json.map(normalizeShop)))
+      .catch(console.error);
   }, [shopsProp]);
 
   return (

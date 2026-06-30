@@ -3,8 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import Map from "../../components/Map";
 import Button from "react-bootstrap/Button";
-import config from "../../data/config.json";
 import { normalizeShop } from "../../lib/shopMaps";
+import { readCollection } from "../../lib/database";
 import Footer from "../../components/home/Footer";
 import Email from "../../components/Email";
 
@@ -20,9 +20,9 @@ export const Contact = () => {
   });
 
   useEffect(() => {
-    fetch(config.shops)
-      .then((res) => res.json())
-      .then((json) => uShops((json || []).map(normalizeShop)));
+    readCollection("shops")
+      .then((json) => uShops(json.map(normalizeShop)))
+      .catch(console.error);
   }, []);
 
   return (

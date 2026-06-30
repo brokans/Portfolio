@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Footer from "../../components/home/Footer";
 import Carousel from "react-bootstrap/Carousel";
-import config from "../../data/config.json";
+import { readCollection } from "../../lib/database";
 import { getVisualCredit } from "../../lib/projectVisualCredit";
 
 const PHOTO_KEYS = [
@@ -32,9 +32,9 @@ function ProjectPage() {
   );
 
   useEffect(() => {
-    fetch(config.projects)
-      .then((res) => res.json())
-      .then((json) => setProjects(json || []));
+    readCollection("projects")
+      .then(setProjects)
+      .catch(console.error);
   }, []);
 
   if (!project) {
@@ -105,9 +105,9 @@ function ProjectPage() {
         <section className="project-detail-related">
           <h2>{t("project.moreProjects")}</h2>
           <div className="architecture-projects__grid">
-            {relatedProjects.map((related, index) => (
+            {relatedProjects.map((related) => (
               <Link
-                key={`${related.name}-${index}`}
+                key={related.name}
                 to={`/project-page/${encodeURIComponent(related.name)}`}
                 className="architecture-project-card"
               >

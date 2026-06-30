@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import config from "../../data/config.json";
-import { writeCollection } from "../../lib/database";
+import { readCollection, writeCollection } from "../../lib/database";
 import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AddProjectModul from "../../components/admin/AddProjectModal";
+import AddProjectModal from "../../components/admin/AddProjectModal";
 
 function MaintainProjects(props) {
   const [projects, setProjects] = useState([]);
@@ -13,13 +12,13 @@ function MaintainProjects(props) {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(config.projects)
-      .then((res) => res.json())
+    readCollection("projects")
       .then((json) => {
-        setProjects(json || []);
-        setDbProjects(json || []);
+        setProjects(json);
+        setDbProjects(json);
         setLoading(false);
-      });
+      })
+      .catch(console.error);
   }, []);
 
   function deleteProject(index) {
@@ -53,9 +52,7 @@ function MaintainProjects(props) {
         placeholder="Projekti nimi"
       />{" "}
       <br />
-      {}
-      <br /> <br />
-      <AddProjectModul /> <br /> <br />
+      <AddProjectModal />
       {projects.map((project, index) => (
         <div key={index} className="manage_project">
           <br />

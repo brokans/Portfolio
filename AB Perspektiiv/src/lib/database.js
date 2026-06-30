@@ -1,20 +1,18 @@
 import { ref, set } from "firebase/database";
 import { database } from "../firebase";
 
-const DATABASE_URL =
-  import.meta.env.VITE_FIREBASE_DATABASE_URL ||
-  "https://bros-webshop-default-rtdb.europe-west1.firebasedatabase.app";
+const DATABASE_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL;
 
 export const COLLECTIONS = {
   projects: "projects",
   shops: "shops",
-  courses: "courses",
-  products: "products",
-  categories: "categories",
-  interior: "interior",
 };
 
 export async function readCollection(key) {
+  if (!DATABASE_URL) {
+    throw new Error("VITE_FIREBASE_DATABASE_URL is not configured");
+  }
+
   const response = await fetch(`${DATABASE_URL}/${COLLECTIONS[key]}.json`);
 
   if (!response.ok) {

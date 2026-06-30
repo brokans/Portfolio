@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Carousel from "react-bootstrap/Carousel";
-import config from "../../data/config.json";
+import { readCollection } from "../../lib/database";
 import { getVisualCredit } from "../../lib/projectVisualCredit";
 
 function InfoRow({ label, value }) {
@@ -32,9 +32,9 @@ function ArchitectureBanner({
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    fetch(config.projects)
-      .then((res) => res.json())
-      .then((json) => setProjects(json || []));
+    readCollection("projects")
+      .then(setProjects)
+      .catch(console.error);
   }, []);
 
   const bannerProjects = projects.filter(
