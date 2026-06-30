@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -9,11 +9,13 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-export const Contact = () => {
+export function Contact({ title, variant = "default" }) {
   const { t } = useTranslation();
   const form = useRef();
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const isCard = variant === "card";
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -24,6 +26,8 @@ export const Contact = () => {
       setError(true);
       return;
     }
+
+    setIsSending(true);
 
     emailjs
       .sendForm(
@@ -39,79 +43,83 @@ export const Contact = () => {
       })
       .catch(() => {
         setError(true);
+      })
+      .finally(() => {
+        setIsSending(false);
       });
   };
 
   return (
-    <>
-      {sent && (
-        <div
-          style={{
-            color: "green",
-            marginBottom: "16px",
-            textAlign: "center",
-            fontWeight: 500,
-          }}
-        >
+    <div className={`${styles.wrapper} ${isCard ? styles.wrapperCard : ""}`}>
+      {title ? <h2 className={styles.formTitle}>{title}</h2> : null}
+
+      {sent ? (
+        <div className={styles.alertSuccess} role="status">
           {t("contact_sent_message")}
         </div>
-      )}
-      {error && (
-        <div
-          style={{
-            color: "#b00020",
-            marginBottom: "16px",
-            textAlign: "center",
-            fontWeight: 500,
-          }}
-        >
+      ) : null}
+      {error ? (
+        <div className={styles.alertError} role="alert">
           {t("contact_error_message")}
         </div>
-      )}
-      <Form className={`${styles.emailForm} mb-3`} ref={form} onSubmit={sendEmail}>
-        <Form.Group className={`${styles.formGroup} mb-3`}>
+      ) : null}
+
+      <Form
+        className={styles.emailForm}
+        ref={form}
+        onSubmit={sendEmail}
+        noValidate
+      >
+        <Form.Group className={styles.formGroup} controlId="contact-from-name">
+          <Form.Label className={styles.label}>
+            {t("contact_name_label")}
+          </Form.Label>
           <Form.Control
             className={styles.formControl}
             type="text"
-            placeholder={t("contact_name_placeholder")}
             name="from_name"
             required
-          />
-        </Form.Group>
-        <Form.Group
-          className={`${styles.formGroup} mb-3`}
-          controlId="formBasicEmail"
-        >
-          <Form.Control
-            className={styles.formControl}
-            type="email"
-            placeholder={t("contact_email_placeholder")}
-            name="from_email"
-            required
+            disabled={isSending}
           />
         </Form.Group>
 
-        <Form.Group
-          className={`${styles.formGroup} mb-3`}
-          controlId="exampleForm.ControlTextarea1"
-        >
+        <Form.Group className={styles.formGroup} controlId="contact-from-email">
+          <Form.Label className={styles.label}>
+            {t("contact_email_label")}
+          </Form.Label>
+          <Form.Control
+            className={styles.formControl}
+            type="email"
+            name="from_email"
+            required
+            disabled={isSending}
+          />
+        </Form.Group>
+
+        <Form.Group className={styles.formGroup} controlId="contact-message">
+          <Form.Label className={styles.label}>
+            {t("contact_message_label")}
+          </Form.Label>
           <Form.Control
             className={styles.formControl}
             as="textarea"
-            rows={3}
-            placeholder={t("contact_message_placeholder")}
+            rows={5}
             name="message"
             required
+            disabled={isSending}
           />
         </Form.Group>
-        <Button
-          variant="secondary"
-          type="submit"
-          className={styles.submitButton}
-        >
-          {t("contact_send_button")}
-        </Button>
+
+        <div className={styles.actions}>
+          <Button
+            type="submit"
+            className={styles.submitButton}
+            disabled={isSending}
+          >
+            {isSending ? t("contact_sending") : t("contact_send_button")}
+          </Button>
+        </div>
       </Form>
-    </>
+    </div>
   );
-};
+}

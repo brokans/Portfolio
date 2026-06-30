@@ -1,11 +1,12 @@
-import React from "react";
 import { Helmet } from "react-helmet-async";
-import styles from "../css/Contacts.module.css";
-import { Contact } from "../components/home/Contact";
 import { useTranslation } from "react-i18next";
+import PageHero from "../components/home/PageHero";
+import { Contact } from "../components/home/Contact";
+import styles from "../css/Contacts.module.css";
 
 function Contacts() {
   const { t } = useTranslation();
+
   return (
     <div>
       <Helmet>
@@ -21,31 +22,20 @@ function Contacts() {
         <meta name="twitter:image" content="https://mabrotech.ee/Elutuba.JPG" />
         <meta name="twitter:image:alt" content="Mabro Tech – kontaktid" />
       </Helmet>
-      <div className={styles.contactsContainer}>
-        <h1>{t("contacts_title")}</h1>
-        <hr />
-        <p>{t("contacts_intro1")}</p>
-        <p>{t("contacts_intro2")}</p>
-        <br />
-        <p>
-          <strong>
-            <a href="mailto:mabrotechy@gmail.com" className={styles.emailLink}>
-              {t("contacts_company")}
-            </a>
-          </strong>
-        </p>
-        <p>
-          {t("contacts_email")}{" "}
-          <a href="mailto:mabrotechy@gmail.com" className={styles.emailLink}>
-            mabrotechy@gmail.com
-          </a>
-        </p>
-        <p>{t("contacts_phone")} +37256778527</p>
-        <p>{t("contacts_regcode")} 17278449</p>
-        <p>{t("contacts_address")}</p>
-      </div>
-      <div id="contact-form">
-        <Contact />
+
+      <PageHero
+        title={t("contacts_title")}
+        subtitle={t("contacts_page_subtitle")}
+      />
+
+      <div className={styles.page}>
+        <div className={styles.intro}>
+          <p className={styles.introText}>{t("contacts_intro1")}</p>
+        </div>
+
+        <div id="contact-form" className={styles.formSection}>
+          <Contact title={t("contact_form_title")} variant="card" />
+        </div>
       </div>
     </div>
   );
