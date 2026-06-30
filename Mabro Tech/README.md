@@ -4,7 +4,7 @@ Marketing site for [Mabro Tech OÜ](https://mabrotech.ee) — interior finishing
 
 ## Stack
 
-- React 18 (Create React App)
+- React 18 + Vite
 - React Router, React Bootstrap, i18next (et / en / ru)
 - EmailJS for the contact form
 - Firebase Hosting (`mabrotechy-a9aeb`)
@@ -19,15 +19,21 @@ npm start
 
 Set EmailJS values in `.env`:
 
-- `REACT_APP_EMAILJS_SERVICE_ID`
-- `REACT_APP_EMAILJS_TEMPLATE_ID`
-- `REACT_APP_EMAILJS_PUBLIC_KEY`
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
 
 ## Build and deploy
 
 ```bash
 npm run build
 firebase deploy --only hosting
+```
+
+Or use the combined script:
+
+```bash
+npm run deploy
 ```
 
 ## Routes
