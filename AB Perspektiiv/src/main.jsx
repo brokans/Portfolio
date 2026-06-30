@@ -5,7 +5,6 @@ import "leaflet/dist/leaflet.css";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { CartSumContextProvider } from "./store/CartSumContext";
 import { AuthContextProvider } from "./store/AuthContext";
 import { HelmetProvider } from "react-helmet-async";
 import "./i18n";
@@ -14,13 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CartSumContextProvider>
-        <AuthContextProvider>
-          <HelmetProvider>
-            <App />
-          </HelmetProvider>
-        </AuthContextProvider>
-      </CartSumContextProvider>
+      <AuthContextProvider>
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
