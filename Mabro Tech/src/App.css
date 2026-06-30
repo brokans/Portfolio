@@ -2,11 +2,12 @@
   color: lightgray !important;
 }
 
-  .navbar .nav-link {
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    font-size: 0.8em;
-    color: white;
-  }
+.navbar .nav-link {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  color: white;
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +15,7 @@
 body {
   display: block;
   font-size: 1.6em;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background: #f8f5f2;
 }
 
@@ -29,17 +30,10 @@ p {
 
 .navbar {
   background-color: black;
-  
-}
-
-.logo {
-  width: 85px;
-  height: auto;
-  border-radius: 5px;
 }
 
 .custom-footer {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background-color: rgba(211, 211, 211, 0.559);
   padding: 10px;
   bottom: 0;
@@ -51,59 +45,4 @@ p {
   font-size: 14px !important;
   color: #333 !important;
   margin: 0;
-}
-
-.contact-img {
-  width: 100%;
-  margin: auto;
-}
-
-.contact-image {
-  width: 80%;
-  margin: auto;
-}
-
-
-
-@media (max-width: 420px) {
-  .name {
-    font-size: 18px;
-  }
-
-  .koolitused-container {
-    display: block;
-  }
-
-  .koolitused-txt-container {
-    width: 100%;
-  }
-
-  .koolitused-txt {
-    width: 90%;
-    text-align: left;
-  }
-
-  .koolitused-img {
-    margin-bottom: 20px;
-  }
-
-  .project-card {
-    width: 80%;
-    margin: auto;
-  }
-}
-
-@media (max-width: 380px) {
-  .project-header {
-    margin-top: 120px;
-  }
-
-  .projects {
-    width: 100%;
-    margin: auto;
-  }
-
-  .project-card {
-    margin: auto;
-  }
 }
