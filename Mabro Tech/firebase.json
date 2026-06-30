@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site:": "mabrotechy-a9aeb",
+    "site": "mabrotechy-a9aeb",
     "public": "build",
     "ignore": [
       "firebase.json",
