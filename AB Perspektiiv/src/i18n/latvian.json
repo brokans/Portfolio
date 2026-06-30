@@ -105,7 +105,12 @@
     "name": "Nosaukums",
     "email": "E-pasts",
     "message": "Pastāstiet par savu ideju!",
-    "send": "Sūtīt"
+    "send": "Sūtīt",
+    "sending": "Sūta…",
+    "success": "Ziņojums nosūtīts. Atbildēsim pēc iespējas ātrāk.",
+    "errorValidation": "Lūdzu, aizpildiet visus laukus pareizi.",
+    "errorGeneric": "Neizdevās nosūtīt ziņojumu. Mēģiniet vēlreiz vai zvaniet.",
+    "errorNotConfigured": "E-pasta sūtīšana nav konfigurēta. Pievienojiet SMTP_* vai RESEND_API_KEY .env failā."
   },
   "contactPage": {
     "eyebrow": "Kontakti",

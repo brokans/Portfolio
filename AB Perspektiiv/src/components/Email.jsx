@@ -1,45 +1,71 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import emailjs from "@emailjs/browser";
-
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+import { toast, ToastContainer } from "react-toastify";
+import { sendContactMessage } from "../lib/contactApi";
 
 function Email({ variant = "default" }) {
   const form = useRef();
   const { t } = useTranslation();
   const isContact = variant === "contact";
+  const [isSending, setIsSending] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      console.error("EmailJS environment variables are not configured");
+    const formData = new FormData(form.current);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const gotcha = String(formData.get("_gotcha") ?? "").trim();
+
+    if (gotcha) {
       return;
     }
 
-    emailjs
-      .sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        form.current,
-        EMAILJS_PUBLIC_KEY
-      )
-      .then(() => {
-        form.current.reset();
-      })
-      .catch(console.error);
+    if (!name || !email || !message) {
+      toast.error(t("email.errorValidation"));
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      await sendContactMessage({ name, email, message });
+      form.current.reset();
+      toast.success(t("email.success"));
+    } catch (error) {
+      const code = error?.code;
+      if (code === "missing_fields" || code === "invalid_email" || code === "field_too_long") {
+        toast.error(t("email.errorValidation"));
+      } else if (code === "mail_not_configured") {
+        toast.error(t("email.errorNotConfigured"));
+      } else {
+        toast.error(t("email.errorGeneric"));
+      }
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <div className={`email-form${isContact ? " email-form--contact" : ""}`}>
+      <ToastContainer position="top-center" autoClose={4000} theme="colored" />
       {isContact && (
         <p className="email-form__card-title">{t("contactPage.formCardTitle")}</p>
       )}
       <Form ref={form} className="email-form__form" onSubmit={sendEmail}>
+        <Form.Group className="email-form__group visually-hidden" aria-hidden="true">
+          <Form.Label htmlFor="contact-gotcha">Leave blank</Form.Label>
+          <Form.Control
+            tabIndex={-1}
+            autoComplete="off"
+            id="contact-gotcha"
+            type="text"
+            name="_gotcha"
+          />
+        </Form.Group>
         <Form.Group className="email-form__group mb-3">
           {isContact && (
             <Form.Label className="email-form__label" htmlFor="contact-from-name">
@@ -50,7 +76,9 @@ function Email({ variant = "default" }) {
             id={isContact ? "contact-from-name" : undefined}
             type="text"
             placeholder={isContact ? undefined : t("email.name")}
-            name="from_name"
+            name="name"
+            required
+            disabled={isSending}
           />
         </Form.Group>
         <Form.Group
@@ -65,7 +93,9 @@ function Email({ variant = "default" }) {
           <Form.Control
             type="email"
             placeholder={isContact ? undefined : t("email.email")}
-            name="from_email"
+            name="email"
+            required
+            disabled={isSending}
           />
         </Form.Group>
         <Form.Group
@@ -83,6 +113,8 @@ function Email({ variant = "default" }) {
             placeholder={isContact ? undefined : t("email.message")}
             rows={5}
             name="message"
+            required
+            disabled={isSending}
           />
         </Form.Group>
         <div className="email-form__actions">
@@ -90,8 +122,9 @@ function Email({ variant = "default" }) {
             className={isContact ? "email-form__submit" : undefined}
             variant="primary"
             type="submit"
+            disabled={isSending}
           >
-            {t("email.send")}
+            {isSending ? t("email.sending") : t("email.send")}
           </Button>
         </div>
       </Form>

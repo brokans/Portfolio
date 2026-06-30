@@ -105,7 +105,12 @@
     "name": "Name",
     "email": "E-Mail",
     "message": "Tell us about your idea!",
-    "send": "Send"
+    "send": "Send",
+    "sending": "Sending…",
+    "success": "Message sent. We will reply as soon as possible.",
+    "errorValidation": "Please fill in all fields correctly.",
+    "errorGeneric": "Could not send the message. Try again or call us.",
+    "errorNotConfigured": "Email sending is not configured. Add GMAIL_*, SMTP_*, or RESEND_API_KEY to .env."
   },
   "contactPage": {
     "eyebrow": "Contact",

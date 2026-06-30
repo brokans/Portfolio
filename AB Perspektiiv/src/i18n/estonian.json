@@ -111,7 +111,12 @@
     "name": "Nimi",
     "email": "E-Mail",
     "message": "Räägi oma ideest!",
-    "send": "Saada"
+    "send": "Saada",
+    "sending": "Saadan…",
+    "success": "Sõnum saadetud. Vastame esimesel võimalusel.",
+    "errorValidation": "Palun täida kõik väljad korrektselt.",
+    "errorGeneric": "Sõnumi saatmine ebaõnnestus. Proovi uuesti või helista.",
+    "errorNotConfigured": "Meili saatmine pole seadistatud. Lisa .env faili GMAIL_* või SMTP_* või RESEND_API_KEY."
   },
   "contactPage": {
     "eyebrow": "Kontakt",

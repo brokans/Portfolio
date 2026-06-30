@@ -105,7 +105,12 @@
     "name": "Nimi",
     "email": "Sähköposti",
     "message": "Kerro ideasi!",
-    "send": "Lähetä"
+    "send": "Lähetä",
+    "sending": "Lähetetään…",
+    "success": "Viesti lähetetty. Vastaamme mahdollisimman pian.",
+    "errorValidation": "Täytä kaikki kentät oikein.",
+    "errorGeneric": "Viestin lähetys epäonnistui. Yritä uudelleen tai soita.",
+    "errorNotConfigured": "Sähköpostin lähetys ei ole määritetty. Lisää SMTP_* tai RESEND_API_KEY .env-tiedostoon."
   },
   "contactPage": {
     "eyebrow": "Yhteystiedot",
