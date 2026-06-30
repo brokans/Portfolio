@@ -4,6 +4,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import emailjs from "@emailjs/browser";
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 function Email({ variant = "default" }) {
   const form = useRef();
   const { t } = useTranslation();
@@ -12,22 +16,22 @@ function Email({ variant = "default" }) {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error("EmailJS environment variables are not configured");
+      return;
+    }
+
     emailjs
       .sendForm(
-        "service_zoynupw",
-        "template_akogdbi",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         form.current,
-        "PXhCZSpIJP4mL_Cfv"
+        EMAILJS_PUBLIC_KEY
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-          form.current.reset();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      .then(() => {
+        form.current.reset();
+      })
+      .catch(console.error);
   };
 
   return (
