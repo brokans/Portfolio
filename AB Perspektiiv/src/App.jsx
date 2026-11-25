@@ -12,7 +12,6 @@ import InteriorArchitecture from "./pages/global/InteriorArchitecture";
 import MaintainLocations from "./pages/admin/MaintainLocations";
 import MaintainProjects from "./pages/admin/MaintainProjects";
 import EditLocation from "./pages/admin/EditLocation";
-import EditProject from "./pages/admin/EditProject";
 import ProjectPage from "./pages/global/ProjectPage";
 import Portfolio from "./pages/global/Portfolio";
 import Services from "./pages/global/Services";
@@ -59,14 +58,6 @@ function App() {
           element={
             <ProtectedRoute>
               <EditLocation />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/maintain-projects/edit-project/:index"
-          element={
-            <ProtectedRoute>
-              <EditProject />
             </ProtectedRoute>
           }
         />

@@ -5,21 +5,8 @@ import { useTranslation } from "react-i18next";
 import Footer from "../../components/home/Footer";
 import Carousel from "react-bootstrap/Carousel";
 import { readCollection } from "../../lib/database";
+import { getProjectPhotos } from "../../lib/projectPhotos";
 import { getVisualCredit } from "../../lib/projectVisualCredit";
-
-const PHOTO_KEYS = [
-  "photoOne",
-  "photoTwo",
-  "photoThree",
-  "photoFour",
-  "photoFive",
-  "photoSix",
-  "photoSeven",
-  "photoEight",
-  "photoNine",
-  "photoTen",
-  "photoEleven",
-];
 
 function ProjectPage() {
   const { t } = useTranslation();
@@ -47,7 +34,7 @@ function ProjectPage() {
     );
   }
 
-  const photos = PHOTO_KEYS.map((key) => project[key]).filter(Boolean);
+  const photos = getProjectPhotos(project);
   const visualCredit = getVisualCredit(project);
   const categoryLabel = t(`categories.${project.category}`, {
     defaultValue: project.category,
@@ -112,8 +99,12 @@ function ProjectPage() {
                 className="architecture-project-card"
               >
                 <div className="architecture-project-card__media">
-                  {related.photoOne && (
-                    <img src={related.photoOne} alt={related.name} loading="lazy" />
+                  {getProjectPhotos(related)[0] && (
+                    <img
+                      src={getProjectPhotos(related)[0]}
+                      alt={related.name}
+                      loading="lazy"
+                    />
                   )}
                 </div>
                 <div className="architecture-project-card__body">

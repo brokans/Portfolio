@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Carousel from "react-bootstrap/Carousel";
 import { readCollection } from "../../lib/database";
+import { getProjectPhotos } from "../../lib/projectPhotos";
 import { getVisualCredit } from "../../lib/projectVisualCredit";
 
 function InfoRow({ label, value }) {
@@ -55,13 +56,17 @@ function ArchitectureBanner({
         interval={5000}
         pause="hover"
       >
-        {bannerProjects.map((project, index) => (
-          <Carousel.Item key={`${project.name}-${index}`}>
-            {project.photoOne && (
-              <img src={project.photoOne} alt={project.name || imageAlt} />
-            )}
-          </Carousel.Item>
-        ))}
+        {bannerProjects.map((project, index) => {
+          const [firstPhoto] = getProjectPhotos(project);
+
+          return (
+            <Carousel.Item key={`${project.name}-${index}`}>
+              {firstPhoto && (
+                <img src={firstPhoto} alt={project.name || imageAlt} />
+              )}
+            </Carousel.Item>
+          );
+        })}
       </Carousel>
 
       {activeProject && (

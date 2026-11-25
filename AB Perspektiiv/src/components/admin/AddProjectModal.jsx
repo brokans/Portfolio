@@ -4,10 +4,12 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { readCollection, writeCollection } from "../../lib/database";
 import { applyVisualCreditInput } from "../../lib/projectVisualCredit";
+import { getLegacyPhotoFields } from "../../lib/projectPhotos";
+import ProjectPhotoFields from "./ProjectPhotoFields";
 import VisualCreditFields from "./VisualCreditFields";
 import { Spinner } from "react-bootstrap";
 
-function AddProjectModal() {
+function AddProjectModal({ onProjectsUpdated }) {
   const [projects, setProjects] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -16,24 +18,36 @@ function AddProjectModal() {
   const handleShow = () => setShow(true);
   const nameRef = useRef();
   const categoryRef = useRef();
-  const imgRefOne = useRef();
-  const imgRefTwo = useRef();
-  const imgRefThree = useRef();
-  const imgRefFour = useRef();
-  const imgRefFive = useRef();
-  const imgRefSix = useRef();
-  const imgRefSeven = useRef();
-  const imgRefEight = useRef();
-  const imgRefNine = useRef();
-  const imgRefTen = useRef();
-  const imgRefEleven = useRef();
   const asukohtRef = useRef();
   const valminudRef = useRef();
   const pindalaRef = useRef();
   const autorRef = useRef();
+  const [photos, setPhotos] = useState([""]);
   const [creditType, setCreditType] = useState("none");
   const [creditValue, setCreditValue] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const [isSaving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
+
+  function handlePhotoChange(index, value) {
+    setPhotos((currentPhotos) =>
+      currentPhotos.map((photo, photoIndex) =>
+        photoIndex === index ? value : photo
+      )
+    );
+  }
+
+  function addPhotoField() {
+    setPhotos((currentPhotos) => [...currentPhotos, ""]);
+  }
+
+  function removePhotoField(index) {
+    setPhotos((currentPhotos) =>
+      currentPhotos.length > 1
+        ? currentPhotos.filter((_, photoIndex) => photoIndex !== index)
+        : currentPhotos
+    );
+  }
 
   function handleCreditTypeChange(nextType) {
     if (nextType !== creditType) {
@@ -51,35 +65,38 @@ function AddProjectModal() {
       .catch(console.error);
   }, []);
 
-  function addProject() {
-    projects.push(
-      applyVisualCreditInput(
-        {
-          name: nameRef.current.value,
-          category: categoryRef.current.value,
-          photoOne: imgRefOne.current.value,
-          photoTwo: imgRefTwo.current.value,
-          photoThree: imgRefThree.current.value,
-          photoFour: imgRefFour.current.value,
-          photoFive: imgRefFive.current.value,
-          photoSix: imgRefSix.current.value,
-          photoSeven: imgRefSeven.current.value,
-          photoEight: imgRefEight.current.value,
-          photoNine: imgRefNine.current.value,
-          photoTen: imgRefTen.current.value,
-          photoEleven: imgRefEleven.current.value,
-          asukoht: asukohtRef.current.value,
-          valminud: valminudRef.current.value,
-          pindala: pindalaRef.current.value,
-          autor: autorRef.current.value,
-        },
-        creditType,
-        creditValue
-      )
+  async function addProject() {
+    setSaveError("");
+    setSaving(true);
+    const photoUrls = photos.map((photo) => photo.trim()).filter(Boolean);
+    const project = applyVisualCreditInput(
+      {
+        name: nameRef.current.value,
+        category: categoryRef.current.value,
+        photos: photoUrls,
+        ...getLegacyPhotoFields(photoUrls),
+        asukoht: asukohtRef.current.value,
+        valminud: valminudRef.current.value,
+        pindala: pindalaRef.current.value,
+        autor: autorRef.current.value,
+      },
+      creditType,
+      creditValue
     );
-    setProjects(projects.slice());
+    const updatedProjects = [...projects, project];
 
-    writeCollection("projects", projects);
+    try {
+      await writeCollection("projects", updatedProjects);
+      setProjects(updatedProjects);
+      onProjectsUpdated(updatedProjects);
+      setPhotos([""]);
+      handleClose();
+    } catch (error) {
+      console.error("Projekti lisamine ebaõnnestus.", error);
+      setSaveError("Projekti salvestamine ebaõnnestus. Proovi uuesti.");
+    } finally {
+      setSaving(false);
+    }
   }
 
   if (isLoading === true) {
@@ -96,123 +113,65 @@ function AddProjectModal() {
           <Modal.Title>Lisa Projekt</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form key={props.productId}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Projekti nimi</Form.Label>
               <Form.Control
                 ref={nameRef}
                 type="text"
                 autoFocus
                 placeholder="Projekti nimi"
               />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Kategooria</Form.Label>
               <Form.Control
                 ref={categoryRef}
                 type="text"
-                autoFocus
                 placeholder="Arhitektuur või Sisearhitektuur"
               />
-              <Form.Control
-                ref={imgRefOne}
-                type="text"
-                autoFocus
-                placeholder="photo 1 URL"
-              />
-              <Form.Control
-                ref={imgRefTwo}
-                type="textarea"
-                autoFocus
-                placeholder="photo 2 URL"
-              />
-              <Form.Control
-                ref={imgRefThree}
-                type="textarea"
-                autoFocus
-                placeholder="photo 3 URL"
-              />
-              <Form.Control
-                ref={imgRefFour}
-                type="textarea"
-                autoFocus
-                placeholder="photo 4 URL"
-              />
-              <Form.Control
-                ref={imgRefFive}
-                type="textarea"
-                autoFocus
-                placeholder="photo 5 URL"
-              />
-              <Form.Control
-                ref={imgRefSix}
-                type="textarea"
-                autoFocus
-                placeholder="photo 6 URL"
-              />
-              <Form.Control
-                ref={imgRefSeven}
-                type="textarea"
-                autoFocus
-                placeholder="photo 7 URL"
-              />
-              <Form.Control
-                ref={imgRefEight}
-                type="textarea"
-                autoFocus
-                placeholder="photo 8 URL"
-              />
-              <Form.Control
-                ref={imgRefNine}
-                type="textarea"
-                autoFocus
-                placeholder="photo 9 URL"
-              />
-              <Form.Control
-                ref={imgRefTen}
-                type="textarea"
-                autoFocus
-                placeholder="photo 10 URL"
-              />
-              <Form.Control
-                ref={imgRefEleven}
-                type="textarea"
-                autoFocus
-                placeholder="photo 11 URL"
-              /> <br />
+            </Form.Group>
+            <ProjectPhotoFields
+              photos={photos}
+              onChange={handlePhotoChange}
+              onAdd={addPhotoField}
+              onRemove={removePhotoField}
+            />
+            <Form.Group className="mb-3">
               <Form.Label>Projekti info</Form.Label>
               <Form.Control
                 ref={asukohtRef}
-                type="textarea"
-                autoFocus
+                type="text"
                 placeholder="Asukoht"
               />
-              <br />
               <Form.Control
                 ref={valminudRef}
-                type="textarea"
-                autoFocus
+                type="text"
                 placeholder="Valminud"
               />
-              <br />
               <Form.Control
                 ref={pindalaRef}
-                type="textarea"
-                autoFocus
+                type="text"
                 placeholder="Pindala"
               />
-              <br />
               <Form.Control
                 ref={autorRef}
-                type="textarea"
-                autoFocus
+                type="text"
                 placeholder="Autor"
               />
-              <br />
-              <VisualCreditFields
-                name="addProjectCreditType"
-                type={creditType}
-                value={creditValue}
-                onTypeChange={handleCreditTypeChange}
-                onValueChange={setCreditValue}
-              />
             </Form.Group>
+            <VisualCreditFields
+              name="addProjectCreditType"
+              type={creditType}
+              value={creditValue}
+              onTypeChange={handleCreditTypeChange}
+              onValueChange={setCreditValue}
+            />
+            {saveError && (
+              <p className="text-danger" role="alert">
+                {saveError}
+              </p>
+            )}
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -221,13 +180,11 @@ function AddProjectModal() {
           </Button>
           <Button
             variant="primary"
-            type="submit"
-            onClick={() => {
-              addProject();
-              handleClose();
-            }}
+            type="button"
+            onClick={addProject}
+            disabled={isSaving}
           >
-            Salvesta
+            {isSaving ? "Salvestan..." : "Salvesta"}
           </Button>
         </Modal.Footer>
       </Modal>
