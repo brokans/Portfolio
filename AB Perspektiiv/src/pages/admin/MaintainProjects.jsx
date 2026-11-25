@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { readCollection, writeCollection } from "../../lib/database";
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Modal, Spinner } from "react-bootstrap";
 import AddProjectModal from "../../components/admin/AddProjectModal";
 import EditProject from "./EditProject";
 
@@ -8,6 +8,9 @@ function MaintainProjects() {
   const [projects, setProjects] = useState([]);
   const [dbProjects, setDbProjects] = useState([]);
   const [editingProjectIndex, setEditingProjectIndex] = useState(null);
+  const [projectToDelete, setProjectToDelete] = useState(null);
+  const [isDeleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState("");
 
   const searchedRef = useRef();
   const [isLoading, setLoading] = useState(true);
@@ -34,12 +37,34 @@ function MaintainProjects() {
     );
   }
 
-  function deleteProject(project) {
+  async function deleteProject() {
+    if (!projectToDelete) {
+      return;
+    }
+
     const updatedProjects = dbProjects.filter(
-      (dbProject) => dbProject !== project
+      (dbProject) => dbProject !== projectToDelete
     );
-    updateProjectLists(updatedProjects);
-    writeCollection("projects", updatedProjects).catch(console.error);
+
+    setDeleting(true);
+    setDeleteError("");
+    try {
+      await writeCollection("projects", updatedProjects);
+      updateProjectLists(updatedProjects);
+      setProjectToDelete(null);
+    } catch (error) {
+      console.error("Projekti kustutamine ebaõnnestus.", error);
+      setDeleteError("Projekti kustutamine ebaõnnestus. Proovi uuesti.");
+    } finally {
+      setDeleting(false);
+    }
+  }
+
+  function closeDeleteModal() {
+    if (!isDeleting) {
+      setProjectToDelete(null);
+      setDeleteError("");
+    }
   }
 
   function searchFromProducts() {
@@ -89,7 +114,10 @@ function MaintainProjects() {
               Muuda
             </Button>
             <Button
-              onClick={() => deleteProject(project)}
+              onClick={() => {
+                setDeleteError("");
+                setProjectToDelete(project);
+              }}
               variant="dark"
               type="button"
             >
@@ -111,6 +139,42 @@ function MaintainProjects() {
         onHide={() => setEditingProjectIndex(null)}
         onProjectsUpdated={updateProjectLists}
       />
+      <Modal
+        show={Boolean(projectToDelete)}
+        onHide={closeDeleteModal}
+        centered
+      >
+        <Modal.Header closeButton={!isDeleting}>
+          <Modal.Title>Kustuta projekt</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            Kas soovid kindlasti kustutada projekti{" "}
+            <strong>{projectToDelete?.name}</strong>?
+          </p>
+          {deleteError && (
+            <p className="text-danger" role="alert">
+              {deleteError}
+            </p>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={closeDeleteModal}
+            disabled={isDeleting}
+          >
+            Tühista
+          </Button>
+          <Button
+            variant="danger"
+            onClick={deleteProject}
+            disabled={isDeleting}
+          >
+            {isDeleting ? "Kustutan..." : "Kustuta projekt"}
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <br /> <br />
     </div>
   );
