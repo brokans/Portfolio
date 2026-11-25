@@ -1,113 +1,113 @@
 # AB Perspektiiv
 
-Architecture studio portfolio website built with React and Vite. The public site showcases architecture and interior design projects, services, and contact information. An admin area supports project and studio location management via Firebase.
+A responsive website for an architecture and interior design studio. Visitors can explore services and project galleries, view the studio location, and contact the team. Authorized staff can manage projects and locations through a Firebase-backed admin area.
 
 **Live site:** [abperspektiiv.com](https://abperspektiiv.com)
 
-## Stack
+## Screenshots
 
-- React 18 + Vite
-- React Router
-- Firebase Realtime Database
-- i18next (ET / EN / FI / LV)
-- Bootstrap 5 + React Bootstrap
-- Leaflet (studio map)
-- Firebase Cloud Functions + SMTP / Resend (contact form)
+<p align="center">
+  <img src="./docs/screenshots/home-mobile.png" alt="AB Perspektiiv homepage on mobile" width="260" />
+  <img src="./docs/screenshots/portfolio-overview.png" alt="Architecture and interior design project gallery" width="420" />
+</p>
 
-## Project structure
+## Features
 
-```
-src/
-├── components/       # Shared UI (navbar, map, email, home sections)
-├── pages/
-│   ├── global/     # Public pages (home, architecture, services, contact)
-│   └── admin/      # Protected CMS (projects, locations)
-├── lib/              # Data access and helpers
-├── i18n/             # Translations
-└── store/            # Auth context
-```
+- Architecture and interior design galleries with project detail pages
+- Responsive layouts and four interface languages: Estonian, English, Finnish, and Latvian
+- Protected admin pages for managing projects and studio locations
+- Firebase Realtime Database and Authentication integration
+- Interactive studio map and contact form with server-side email delivery
 
-## Setup
+## My contribution
+
+- Developed and maintained the public React experience and Firebase-backed project management tools.
+- Improved the mobile navigation and architecture hero layout.
+- Migrated 43 image assets from Postimages to Firebase Hosting and optimized them, reducing their combined size from 10.49 MiB to 7.46 MiB (28.9%) without changing their URLs.
+
+## Technology
+
+- React 18, React Router 6, and Vite 6
+- Firebase Authentication, Realtime Database, Hosting, and Cloud Functions v2
+- Bootstrap 5 and React Bootstrap
+- i18next and react-i18next
+- Leaflet and React Leaflet
+- Nodemailer for Gmail OAuth2 and SMTP; Resend for API-based email delivery
+
+## Run locally
+
+Requirements: Node.js and npm.
 
 ```bash
-npm install
-cp .env.example .env
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## Environment variables
-
-Copy `.env.example` to `.env` and fill in:
+Create a `.env` file in the project root and add the Firebase web app settings below before starting the development server. The `.env` file is local configuration and must not be committed.
 
 | Variable | Description |
 |----------|-------------|
 | `VITE_FIREBASE_API_KEY` | Firebase web app API key |
-| `VITE_FIREBASE_AUTH_DOMAIN` | Firebase auth domain |
+| `VITE_FIREBASE_AUTH_DOMAIN` | Firebase Authentication domain |
 | `VITE_FIREBASE_DATABASE_URL` | Realtime Database URL |
 | `VITE_FIREBASE_PROJECT_ID` | Firebase project ID |
 | `VITE_FIREBASE_STORAGE_BUCKET` | Firebase storage bucket |
 | `VITE_FIREBASE_MESSAGING_SENDER_ID` | Firebase sender ID |
 | `VITE_FIREBASE_APP_ID` | Firebase app ID |
 
-### Contact form
+Open [http://localhost:3000](http://localhost:3000).
 
-The contact form posts to `/api/contact` (Firebase Cloud Function in production, Vite middleware locally). Choose **one** provider:
+### Contact form configuration
 
-**Option A — Gmail API (OAuth2)** — same pattern as a small Node backend:
+The local Vite server handles `/api/contact`. To test email delivery locally, configure one server-side provider in `.env`:
 
-| Variable | Description |
-|----------|-------------|
-| `GMAIL_USER` | Gmail address that sends mail |
-| `GMAIL_CLIENT_ID` | Google Cloud OAuth client ID |
-| `GMAIL_CLIENT_SECRET` | OAuth client secret |
-| `GMAIL_REFRESH_TOKEN` | Long-lived refresh token |
-| `CONTACT_TO_EMAIL` | Inbox that receives form submissions |
+- Gmail OAuth2: `GMAIL_USER`, `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, and `GMAIL_REFRESH_TOKEN`
+- SMTP: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, and `SMTP_PASS`
+- Resend: `RESEND_API_KEY`
 
-Setup once in [Google Cloud Console](https://console.cloud.google.com/):
-1. Create a project → enable **Gmail API**
-2. **APIs & Services → Credentials** → OAuth 2.0 Client ID (Desktop app or Web)
-3. Get a refresh token via [OAuth 2.0 Playground](https://developers.google.com/oauthplayground) with scope `https://mail.google.com/`
-
-**Option B — SMTP** (mailbox host):
-
-| Variable | Example |
-|----------|---------|
-| `SMTP_HOST` | `smtp.gmail.com` |
-| `SMTP_PORT` | `587` |
-| `SMTP_USER` | your email |
-| `SMTP_PASS` | app password |
-
-**Option C — [Resend](https://resend.com)** — API key + verified domain.
-
-Priority if multiple are set: **Gmail → SMTP → Resend**. Variables stay server-side (no `VITE_` prefix). Restart `npm run dev` after editing `.env`.
+`CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL` are optional. Keep mail credentials server-side; never expose them through `VITE_` variables.
 
 ## Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Production build to `build/` |
-| `npm run preview` | Preview production build |
-| `npm run deploy` | Build and deploy hosting + contact function |
-| `npm run deploy:hosting` | Build and deploy hosting only |
-| `npm run deploy:functions` | Deploy contact function only |
-| `npm run emulators` | Start Firebase Functions emulator |
+| `npm run dev` | Start the local Vite development server |
+| `npm run build` | Create the production build in `build/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run deploy:hosting` | Build and deploy Firebase Hosting |
+| `npm run deploy:functions` | Deploy the contact Cloud Function |
+| `npm run deploy` | Build and deploy Hosting and Cloud Functions |
+| `npm run emulators` | Start the Firebase Functions emulator |
 
-## Routes
+## Main routes
 
 | Path | Page |
 |------|------|
 | `/` | Home |
+| `/portfolio` | Combined project gallery |
 | `/arhitektuur` | Architecture projects |
 | `/sisearhitektuur` | Interior architecture projects |
-| `/portfolio` | Combined project overview |
+| `/project-page/:name` | Project details |
 | `/services` | Services |
-| `/contacts` | Contact + map |
-| `/project-page/:name` | Project detail |
-| `/admin` | CMS (login required) |
+| `/contacts` | Contact form and map |
+| `/admin` | Protected content management |
 
-## License
+## Project structure
 
-Private project — AB Perspektiiv / Mario Brokans.
+```text
+src/
+├── components/       Shared navigation, map, and page components
+├── i18n/             Interface translations
+├── lib/              Shared helpers
+├── pages/
+│   ├── admin/        Protected admin pages
+│   └── global/       Public pages
+├── store/            Authentication context
+└── styles/           Global and page styles
+functions/            Firebase Cloud Functions
+tools/                Contact email handling and project utilities
+```
+
+## Project context
+
+Built for AB Perspektiiv. Studio branding, project imagery, and photography belong to their respective owners; obtain permission before reusing them.

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const HERO_IMAGE = "https://i.postimg.cc/L8QSvPQ4/P-1.jpg";
+const HERO_IMAGE = "/images/025_P-1.jpg";
 
 function HomeHero() {
   const { t } = useTranslation();

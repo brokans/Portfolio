@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Container from "react-bootstrap/Container";
@@ -24,13 +25,18 @@ function changeLanguage(code) {
 
 function Navbars() {
   const { t } = useTranslation();
+  const [isExpanded, setIsExpanded] = useState(false);
   const activeLanguage = i18n.resolvedLanguage || i18n.language;
   const activeLang =
     LANGUAGES.find((language) => language.code === activeLanguage) ||
     LANGUAGES[0];
 
   return (
-    <Navbar expand="lg" className="navigation fixed-top">
+    <Navbar
+      expand="lg"
+      onToggle={setIsExpanded}
+      className={`navigation fixed-top${isExpanded ? " navigation--expanded" : ""}`}
+    >
       <Container fluid>
         <Navbar.Brand href="/">
           <img className="logo" src="/Must.png" alt="AB Perspektiiv logo" />

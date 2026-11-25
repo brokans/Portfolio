@@ -20,12 +20,12 @@ const SERVICE_ICONS = {
 
 const SERVICE_IMAGES = {
   consultation:
-    "https://i.postimg.cc/fT781y2B/angeelika-Fotograaf-Lisette-Laanoja-81.jpg",
-  architecturalDesign: "https://i.postimg.cc/L8QSvPQ4/P-1.jpg",
-  interiorDesign: "https://i.postimg.cc/B6HcMxgd/0610-mad-3-2.jpg",
-  modeling3d: "https://i.postimg.cc/nhDpLrc3/1-3-D-ARHITEKTUUR-1.jpg",
-  moodboard: "https://i.postimg.cc/Hnt0CdFz/0710-1-MAG-2-1.jpg",
-  businessAnalysis: "https://i.postimg.cc/jd13FjX4/1-RH-1.jpg",
+    "/images/016_angeelika-Fotograaf-Lisette-Laanoja-81.jpg",
+  architecturalDesign: "/images/025_P-1.jpg",
+  interiorDesign: "/images/011_0610-mad-3-2.jpg",
+  modeling3d: "/images/029_1-3-D-ARHITEKTUUR-1.jpg",
+  moodboard: "/images/017_0710-1-MAG-2-1.jpg",
+  businessAnalysis: "/images/019_1-RH-1.jpg",
 };
 
 const PROCESS_STEP_KEYS = ["consult", "design", "delivery"];

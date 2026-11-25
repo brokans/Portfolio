@@ -5,6 +5,12 @@
   border-bottom: 1px solid #ececec;
 }
 
+@media (max-width: 991.98px) {
+  .navigation.navigation--expanded {
+    position: relative;
+  }
+}
+
 .navigation .site-nav .nav-link.site-nav-link {
   position: relative;
   color: #5c5c5c !important;

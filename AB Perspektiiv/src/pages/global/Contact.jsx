@@ -54,7 +54,7 @@ export const Contact = () => {
               <div className="contact-team-card__media">
                 <img
                   className="contact-team-card__photo"
-                  src="https://i.postimg.cc/V6yr4GV5/IMG-0026-Copy.jpg"
+                  src="/images/038_IMG-0026-Copy.jpg"
                   alt="Angeelika Saaron"
                 />
               </div>
@@ -74,7 +74,7 @@ export const Contact = () => {
               <div className="contact-team-card__media">
                 <img
                   className="contact-team-card__photo"
-                  src="https://i.postimg.cc/jS5R0qr7/IMG-9879.jpg"
+                  src="/images/020_IMG-9879.jpg"
                   alt="Mario Brokans"
                 />
               </div>
